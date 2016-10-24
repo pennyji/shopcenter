@@ -15,7 +15,6 @@ import com.cheer.mini.base.util.LogUtil;
 
 public class ExceptionHandler implements HandlerExceptionResolver {
 
-    @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         ModelAndView mv = new ModelAndView("error/ajaxErrorPage");
         LogUtil.error(this.getClass(), ex.getMessage());
