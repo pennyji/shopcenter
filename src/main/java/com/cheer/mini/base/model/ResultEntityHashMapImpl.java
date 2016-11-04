@@ -35,37 +35,37 @@ public class ResultEntityHashMapImpl extends HashMap<String, Object> implements 
         this.put(KW_KEY_TOKEN, token);
     }
 
-    @Override
+    
     public void setStatus(String status) {
         this.put(KW_KEY_STATUS, status);
     }
 
-    @Override
+    
     public void setMsg(String msg) {
         this.put(KW_KEY_MSG, msg);
     }
 
-    @Override
+    
     public void setResult(Object result) {
         this.put(KW_KEY_RESULT, result);
     }
 
-    @Override
+    
     public void addObject(String key, Object value) {
         this.put(key, value);
     }
 
-    @Override
+    
     public void removeObject(String key) {
         this.remove(key);
     }
 
-    @Override
+    
     public Object getStatus() {
         return this.get(KW_KEY_STATUS);
     }
 
-    @Override
+    
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("{");

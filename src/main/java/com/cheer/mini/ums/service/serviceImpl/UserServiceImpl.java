@@ -46,13 +46,13 @@ public class UserServiceImpl implements UserService {
         return false;
     }
 
-    @Override
+ 
     public User getByAccount(String account) {
         User user = userDao.getByAccount(account);
         return user;
     }
 
-    @Override
+  
     public User adminLogin(String account, String password) throws ServiceException {
         User user = this.getByAccount(account);
         if (user == null) throw new ServiceException("用户名或密码错误");
@@ -61,7 +61,7 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
-    @Override
+    
     public int createUser(CustomerUserCreateRequest userParam) throws ServiceException {
         
         if(StringUtil.isEmpty(userParam.getAccount()))throw new ServiceException("用户名不能为空");
