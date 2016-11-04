@@ -50,25 +50,47 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
-	@Override
-	public User getByAccount(String account) {
-		User user = userDao.getByAccount(account);
-		return user;
-	}
 
-	@Override
-	public User adminLogin(String account, String password)
-			throws ServiceException {
-		User user = this.getByAccount(account);
-		if (user == null)
-			throw new ServiceException("用户名或密码错误");
-//		if (user.getAccountTypeFk() != Constants.AccountType.ACCOUNT_TYPE_ADMIN)
-//			throw new ServiceException("用户名或密码错误");
-		if (!this.validatePassword(user, password))
-			throw new ServiceException("用户名或密码错误");
-		return user;
-	}
+ 
+    public User getByAccount(String account) {
+        User user = userDao.getByAccount(account);
+        return user;
+    }
 
+  
+    public User adminLogin(String account, String password) throws ServiceException {
+        User user = this.getByAccount(account);
+        if (user == null) throw new ServiceException("用户名或密码错误");
+        if (user.getAccountTypeFk() != Constants.AccountType.ACCOUNT_TYPE_ADMIN) throw new ServiceException("用户名或密码错误");
+        if (!this.validatePassword(user, password)) throw new ServiceException("用户名或密码错误");
+        return user;
+    }
+
+    
+    public int createUser(CustomerUserCreateRequest userParam) throws ServiceException {
+        
+        if(StringUtil.isEmpty(userParam.getAccount()))throw new ServiceException("用户名不能为空");
+        if(StringUtil.isEmpty(userParam.getName()))throw new ServiceException("姓名不能为空");
+        if(StringUtil.isEmpty(userParam.getNickname()))throw new ServiceException("昵称不能为空");
+        if(StringUtil.isEmpty(userParam.getPassword()))throw new ServiceException("密码不能为空");
+        if((userParam.getGender()!=Constants.Gender.GENDER_MALE)||(userParam.getGender()!=Constants.Gender.GENDER_FEMALE))throw new ServiceException("请选择性别");
+        User user = this.getByAccount(userParam.getAccount());
+        if(user!=null)throw new ServiceException("该用户名已存在");
+        user = new User();      
+        user.setAccount(userParam.getAccount());
+        user.setGender(userParam.getGender());
+        user.setCreatorFk(user.getId());
+        user.setUpdaterFk(user.getId());
+        user.setName(userParam.getName());
+        user.setNickname(userParam.getNickname());
+        user.setPassword(userParam.getPassword());
+        this.encryptPassword(user);
+        return userDao.save(user);
+       
+        
+    }
+
+	
 	@Override
 	public int createUser(CustomerUserCreateRequest userParam)
 			throws ServiceException {
@@ -104,5 +126,6 @@ public class UserServiceImpl implements UserService {
 		return userDao.save(user);
 
 	}
+
 
 }
