@@ -30,7 +30,7 @@ public class StringUtil {
     }
 
     /**
-     * 创建32位UUID字符�?
+     * 创建32位UUID字符�?
      * 
      * @param length
      * @return
@@ -53,7 +53,7 @@ public class StringUtil {
     }
 
     /**
-     * 判断字符是否为非空字�?
+     * 判断字符是否为非空字符？
      * 
      * @param str
      * @return
