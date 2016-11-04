@@ -13,6 +13,7 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/*/**" />
 			<mvc:mapping path="/" />
+			<mvc:exclude-mapping path="/ums/user/index" />
 			<mvc:exclude-mapping path="/ums/user/login" />
 			<mvc:exclude-mapping path="/ums/user/logout" />
 			<mvc:exclude-mapping path="/ums/user/validatelogin" />

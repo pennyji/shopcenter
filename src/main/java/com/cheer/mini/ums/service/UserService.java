@@ -4,13 +4,9 @@ import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
 
-
-
 /**
  * 站在使用者的角度去设计接口
- * 
  * @author Lucy
- * 
  */
 public interface UserService {
 
