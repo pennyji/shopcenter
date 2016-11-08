@@ -52,17 +52,16 @@
 	}
 </style>
 
-
-
-
 </head>
 <body>
 	<div class="container">
 
 		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/validatelogin">
 			<h2 class="form-signin-heading">Please sign in</h2>
-			<input name = "account" class="form-control" placeholder="Account" required autofocus>
-			<input name ="password" type="password" class="form-control" placeholder="Password" required>
+			<div><input name="account" id="account" class="form-control" placeholder="Account" required autofocus>
+			<span id="act"></span></div>
+			<input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
+			<span id="pwd"></span>
 			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">Sign in</button>
 		</form>
 
