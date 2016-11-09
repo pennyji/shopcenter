@@ -104,16 +104,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.save(user);
 
 	}
-	@Override
-	public List<User> getUserAll() {
-		List<User> list=userDao.getUserAll();
-		return list;
-	}
+	
 
-	@Override
-	public User get(String id) {
-		User user=userDao.get(id);
-		return user;
-	}
+	
 
 }

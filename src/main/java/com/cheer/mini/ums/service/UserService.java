@@ -12,10 +12,6 @@ import com.cheer.mini.ums.model.User;
  */
 public interface UserService {
 	
-    public User get(String id);
-	
-	public List<User> getUserAll();
-
     public User getByAccount(String account);
 
     public User adminLogin(String account, String password)throws ServiceException;
