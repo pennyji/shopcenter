@@ -40,3 +40,5 @@ $(function(){
 		<a href="#" class="list-group-item" id="user_query">查询全部用户</a>
 	</div>
 </div><!--/.sidebar-offcanvas-->
+
+

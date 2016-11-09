@@ -9,6 +9,7 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/My Library"/>
@@ -28,5 +29,10 @@
 	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/My Library"/>
 >>>>>>> master
 >>>>>>> tommy
+=======
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.USER_LIBRARY/lib"/>
+	<classpathentry kind="lib" path="WebRoot/WEB-INF/lib/itcast-tools-1.4.jar"/>
+>>>>>>> cl
 	<classpathentry kind="output" path="WebRoot/WEB-INF/classes"/>
 </classpath>

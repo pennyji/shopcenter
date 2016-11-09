@@ -38,4 +38,6 @@ public class Constants {
      */
     public final static String INTERRUPT_EXCEPTION_ERRO_MSG = "Internal Server Error!";
     
+    public final static int COMMODITY_PAGE_SIZE = 12; //商品每页记录数
+    
 }
