@@ -56,6 +56,12 @@
 
 	</insert>
 	
+<<<<<<< HEAD
+	  <!--一个查找所有的sql语句  -->
+	<select id="getUserAll"  resultType="User">
+		SELECT * FROM ums_user
+	</select>
+=======
 	<select id="queryAll" parameterType="String" resultType="User">
 		SELECT
 		*
@@ -68,5 +74,6 @@
 		SET name =#{name},nickname =#{nickname}
 		WHERE account =#{account}
 	</update>
-	
+
+>>>>>>> tommy
 </mapper> 

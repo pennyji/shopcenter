@@ -12,7 +12,7 @@ public class CustomerUserCreateRequest {
 
     private short gender;
 
-    private int accountTypeFk;
+    private  int accountTypeFk;
 
     public String getName() {
         return name;

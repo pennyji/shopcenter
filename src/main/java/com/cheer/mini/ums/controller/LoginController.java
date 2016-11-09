@@ -1,5 +1,7 @@
 package com.cheer.mini.ums.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -17,6 +20,7 @@ import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
+import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.dto.request.LoginRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
@@ -24,15 +28,19 @@ import com.cheer.mini.ums.service.UserService;
 @Controller
 @RequestMapping("/ums/user")
 public class LoginController {
-
 	@Autowired
 	private UserService userService;
 
-	@RequestMapping("/login")
+	@RequestMapping("/showLogin")
 	public ModelAndView login(final HttpServletRequest request,
 			final HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView("ums/login");
 		return mv;
+	}
+	
+	@RequestMapping("/login")
+	public String toShowIndex(){
+		return "redirect:/pms/product/showIndex";
 	}
 
 	@RequestMapping(value = "/validatelogin")
@@ -57,26 +65,6 @@ public class LoginController {
 		return new ResponseEntity<ResultEntity>(result, headers,
 				HttpStatus.CREATED);
 	}
-
-	/*
-	 * @RequestMapping(value = "/validatelogin") public void validateLogin(
-	 * final HttpServletRequest request,
-	 * 
-	 * @RequestBody LoginRequest loginRequest, UriComponentsBuilder builder,
-	 * final HttpServletResponse response) throws ServiceException, Exception {
-	 * ResultEntity result = null;
-	 * 
-	 * User user = userService.adminLogin(loginRequest.getAccount(),
-	 * loginRequest.getPassword());
-	 * 
-	 * request.getSession().setAttribute(Constants.CURRENT_USER, user);
-	 * 
-	 * if (user.getAccountTypeFk() == 100) { System.out.println("if");
-	 * 
-	 * }else { System.out.println("else"); adminIndex(request, response); }
-	 * 
-	 * }
-	 */
 
 	@RequestMapping("/logout")
 	public ModelAndView logout(final HttpServletRequest request,
@@ -118,5 +106,5 @@ public class LoginController {
 	 * 
 	 * return modelAndView; }
 	 */
-
+	
 }
