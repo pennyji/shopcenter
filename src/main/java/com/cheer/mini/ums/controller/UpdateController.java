@@ -35,21 +35,6 @@ public class UpdateController {
 	}
 	
 	/*@RequestMapping("/doUpdate")
-	public ModelAndView doUpdate(HttpServletRequest request){
-		String account = request.getParameter("account");
-		String name = request.getParameter("name");
-		String nickname = request.getParameter("nickname");
-		User user = new User();
-		System.out.println(account);
-		user.setAccount(account);
-		user.setName(name);
-		user.setNickname(nickname);
-		userDao.update(user);
-		ModelAndView modelAndView = new ModelAndView("/ums/index");
-		return modelAndView;
-	}*/
-	
-	@RequestMapping("/doUpdate")
 	public ModelAndView doUpdate(@ModelAttribute User user){
 //		String account = request.getParameter("account");
 //		String name = request.getParameter("name");
@@ -59,6 +44,23 @@ public class UpdateController {
 //		user.setAccount(account);
 //		user.setName(name);
 //		user.setNickname(nickname);
+		System.out.println("ok~");
+		userDao.update(user);
+		ModelAndView modelAndView = new ModelAndView("/ums/index");
+		return modelAndView;
+	}*/
+	
+	@RequestMapping("/doUpdate")
+	public ModelAndView doUpdate(HttpServletRequest request){
+		String account = request.getParameter("account");
+		String name = request.getParameter("name");
+		String nickname = request.getParameter("nickname");
+		User user = new User();
+		System.out.println(account);
+		user.setAccount(account);
+		user.setName(name);
+		user.setNickname(nickname);
+		System.out.println("ok~");
 		userDao.update(user);
 		ModelAndView modelAndView = new ModelAndView("/ums/index");
 		return modelAndView;

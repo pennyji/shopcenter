@@ -28,5 +28,4 @@ public class QueryController {
 		return modelAndView;
 	}
 	
-	
 }

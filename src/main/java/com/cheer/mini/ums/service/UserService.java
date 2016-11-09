@@ -14,6 +14,6 @@ public interface UserService {
 
     public User adminLogin(String account, String password)throws ServiceException;
 
-    public int createUser(CustomerUserCreateRequest userParam) throws ServiceException;   
+    public int createUser(CustomerUserCreateRequest userParam) throws ServiceException;
 
 }

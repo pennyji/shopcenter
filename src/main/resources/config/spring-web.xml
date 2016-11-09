@@ -17,14 +17,18 @@
 			<mvc:exclude-mapping path="/ums/user/login" />
 			<mvc:exclude-mapping path="/ums/user/logout" />
 			<mvc:exclude-mapping path="/ums/user/validatelogin" />
+			
+			<mvc:exclude-mapping path="/pms/**" />
+			<mvc:exclude-mapping path="/ums/**" />
+			
 			<mvc:exclude-mapping path="/styles/**" />
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
-			<bean class="com.cheer.mini.base.interceptors.LoginInterceptor">
-
-			</bean>
+			<bean class="com.cheer.mini.base.interceptors.LoginInterceptor"></bean>
 		</mvc:interceptor>
 	</mvc:interceptors>
+	
+	
 
 	<!-- 配置spingmvc -->
 	<!-- 1、开启spingmvc注解模式 -->

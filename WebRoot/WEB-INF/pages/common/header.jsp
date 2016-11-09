@@ -17,7 +17,7 @@
       <div class="navbar-right">
 	      <ul>
 	        <li style="float:left;" class="dropdown"><span class="navbar-brand" data-toggle="dropdown">您好, ${sessionScope.LOGIN_USER.nickname } !</span></li>
-	        <li style="float:left;"><a class="navbar-brand" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">登出</a></li>
+	        <li style="float:left;"><a class="navbar-brand" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">退出登录</a></li>
 	      </ul>
       </div>
 	

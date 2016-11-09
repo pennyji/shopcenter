@@ -50,15 +50,11 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
-
-
-	@Override
 	public User getByAccount(String account) {
 		User user = userDao.getByAccount(account);
 		return user;
 	}
 
-	@Override
 	public User adminLogin(String account, String password)
 			throws ServiceException {
 		User user = this.getByAccount(account);
@@ -71,83 +67,6 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	@Override
-	public int createUser(CustomerUserCreateRequest userParam)
-			throws ServiceException {
-
-		if (StringUtil.isEmpty(userParam.getName()))
-			throw new ServiceException("姓名不能为空");
-		if (StringUtil.isEmpty(userParam.getNickname()))
-			throw new ServiceException("昵称不能为空");
-		if (StringUtil.isEmpty(userParam.getAccount()))
-			throw new ServiceException("账号不能为空");
-		if (StringUtil.isEmpty(userParam.getPassword()))
-			throw new ServiceException("密码不能为空");
-		if (!(Constants.Gender.GENDER_MALE == userParam.getGender() || Constants.Gender.GENDER_FEMALE == userParam
-				.getGender()))
-			throw new ServiceException("请选择性别");
-		if (!(Constants.AccountType.ACCOUNT_TYPE_CUSTOMER == userParam
-				.getAccountTypeFk() || Constants.AccountType.ACCOUNT_TYPE_ADMIN == userParam
-				.getAccountTypeFk()))
-			throw new ServiceException("请选择账户类型");
-		User user = this.getByAccount(userParam.getAccount());
-		if (user != null)
-			throw new ServiceException("该账号已存在");
-		user = new User();
-		user.setName(userParam.getName());
-		user.setNickname(userParam.getNickname());
-		user.setAccount(userParam.getAccount());
-		user.setPassword(userParam.getPassword());
-		user.setGender(userParam.getGender());
-		user.setAccountTypeFk(userParam.getAccountTypeFk());
-		user.setCreatorFk(user.getId());
-		user.setUpdaterFk(user.getId());
-		this.encryptPassword(user);
-		return userDao.save(user);
-
-	}
-
-	
-	@Override
-	public int createUser(CustomerUserCreateRequest userParam)
-			throws ServiceException {
-
-		if (StringUtil.isEmpty(userParam.getName()))
-			throw new ServiceException("姓名不能为空");
-		if (StringUtil.isEmpty(userParam.getNickname()))
-			throw new ServiceException("昵称不能为空");
-		if (StringUtil.isEmpty(userParam.getAccount()))
-			throw new ServiceException("账号不能为空");
-		if (StringUtil.isEmpty(userParam.getPassword()))
-			throw new ServiceException("密码不能为空");
-		if (!(Constants.Gender.GENDER_MALE == userParam.getGender() || Constants.Gender.GENDER_FEMALE == userParam
-				.getGender()))
-			throw new ServiceException("请选择性别");
-		if (!(Constants.AccountType.ACCOUNT_TYPE_CUSTOMER == userParam
-				.getAccountTypeFk() || Constants.AccountType.ACCOUNT_TYPE_ADMIN == userParam
-				.getAccountTypeFk()))
-			throw new ServiceException("请选择账户类型");
-		User user = this.getByAccount(userParam.getAccount());
-		if (user != null)
-			throw new ServiceException("该账号已存在");
-		user = new User();
-		user.setName(userParam.getName());
-		user.setNickname(userParam.getNickname());
-		user.setAccount(userParam.getAccount());
-		user.setPassword(userParam.getPassword());
-		user.setGender(userParam.getGender());
-		user.setAccountTypeFk(userParam.getAccountTypeFk());
-		user.setCreatorFk(user.getId());
-		user.setUpdaterFk(user.getId());
-		this.encryptPassword(user);
-		return userDao.save(user);
-
-	}
-
->>>>>>> master
-
-	
-	@Override
 	public int createUser(CustomerUserCreateRequest userParam)
 			throws ServiceException {
 

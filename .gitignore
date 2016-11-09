@@ -1,5 +1,6 @@
 *.class
 *.classpath
+.classpath
 rebel.xml
 
 # Mobile Tools for Java (J2ME)
