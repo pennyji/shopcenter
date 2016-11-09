@@ -1,26 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>  
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- parameterType是参数类型 -->
 <mapper namespace="com.cheer.mini.pms.dao.CommodityDao">
-	<!-- <resultMap id="commodity" type="Commodity">
-        <id column="commodityId" property="commodityId" />
-        <result column="commodityName" property="commodityName" />
-        <result column="commodityPrice" property="commodityPrice" />
-    </resultMap> -->
-    <!--一个查找所有的sql语句  -->
-	<select id="getcommodityAll"  resultType="Commodity">
-		SELECT * FROM pms_commodity
+	<select id="findById" parameterType="String" resultType="Commodity">
+		SELECT * from pms_commodity where commodityId = #{commodityId}
 	</select>
-	
-	<!--一个查找id的sql语句  -->
-	
-	<select id="getcommodityId"  resultType="Commodity">
-		SELECT * FROM pms_commodity WHERE commodityId=#{value}
-	</select>
-	
-	<!--按类别查询的sql  -->
-	<select id="getcommodityType"  resultType="Commodity">
-		SELECT * FROM pms_commodity WHERE commodityType=#{value}
-	</select>
-	
-	
+		
+
+
+
+
 </mapper>
