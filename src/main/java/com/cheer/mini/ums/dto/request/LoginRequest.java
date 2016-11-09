@@ -1,5 +1,7 @@
 package com.cheer.mini.ums.dto.request;
 
+import java.util.Date;
+
 public class LoginRequest {
 
     private String account;

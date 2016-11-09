@@ -9,22 +9,23 @@
    http://www.springframework.org/schema/mvc
    http://www.springframework.org/schema/mvc/spring-mvc.xsd
   ">
-	<mvc:interceptors>
+   <mvc:interceptors>
 		<mvc:interceptor>
 			<mvc:mapping path="/*/**" />
 			<mvc:mapping path="/" />
-			<mvc:exclude-mapping path="/ums/user/index" />
 			<mvc:exclude-mapping path="/ums/user/login" />
 			<mvc:exclude-mapping path="/ums/user/logout" />
+		    <mvc:exclude-mapping path="/ums/**" /> 
 			<mvc:exclude-mapping path="/ums/user/validatelogin" />
+			<mvc:exclude-mapping path="/pms/**"/>
 			<mvc:exclude-mapping path="/styles/**" />
+			<mvc:exclude-mapping path="/img/**" />
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
 			<bean class="com.cheer.mini.base.interceptors.LoginInterceptor">
-
 			</bean>
 		</mvc:interceptor>
-	</mvc:interceptors>
+	</mvc:interceptors> 
 
 	<!-- 配置spingmvc -->
 	<!-- 1、开启spingmvc注解模式 -->

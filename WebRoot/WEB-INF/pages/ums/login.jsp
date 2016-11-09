@@ -6,8 +6,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<jsp:include page="../common/meta.jsp" />
-<jsp:include page="../common/resources.jsp" />
+ <jsp:include page="../common/meta.jsp" />
+<jsp:include page="../common/resources.jsp" /> 
 <script src="${path}/scripts/ums/login.js?20160811" ></script>
 <style type="text/css">
 	body {
@@ -52,16 +52,17 @@
 	}
 </style>
 
+
+
+
 </head>
 <body>
 	<div class="container">
 
-		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/validatelogin">
+		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/myvalidatelogin">
 			<h2 class="form-signin-heading">Please sign in</h2>
-			<div><input name="account" id="account" class="form-control" placeholder="Account" required autofocus>
-			<span id="act"></span></div>
-			<input name="password" type="password" id="password" class="form-control" placeholder="Password" required>
-			<span id="pwd"></span>
+			<input name = "account" class="form-control" placeholder="Account" required autofocus>
+			<input name ="password" type="password" class="form-control" placeholder="Password" required>
 			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">Sign in</button>
 		</form>
 

@@ -1,7 +1,6 @@
-package com.cheer.mini.pms.model;
+package com.cheer.mini.pms.dto.request;
 
-public class Commodity {
-	//商品id主键
+public class CommodityRequest {
 	private String commodityId;
 	//商品名称
 	private String commodityName;
@@ -11,9 +10,6 @@ public class Commodity {
 	private String commodityDetail;
 	//商品类型
 	private String commodityType;
-	//图片路径
-	private String commodityPrint;
-	
 	
 	public String getCommodityId() {
 		return commodityId;
@@ -45,18 +41,6 @@ public class Commodity {
 	public void setCommodityType(String commodityType) {
 		this.commodityType = commodityType;
 	}
-	public String getCommodityPrint() {
-		return commodityPrint;
-	}
-	public void setCommodityPrint(String commodityPrint) {
-		this.commodityPrint = commodityPrint;
-	}
-	@Override
-	public String toString() {
-		return "Commodity [commodityId=" + commodityId + ", commodityName="
-				+ commodityName + ", commodityPrice=" + commodityPrice
-				+ ", commodityDetail=" + commodityDetail + ", commodityType="
-				+ commodityType + ", commodityPrint=" + commodityPrint + "]";
-	}
+	
 	
 }

@@ -22,7 +22,7 @@ public class Constants {
         public static final int ACCOUNT_TYPE_CUSTOMER = 100;
         
         /**
-         * 管理员账号
+         * 管理员账�?
          */
         public static final int ACCOUNT_TYPE_ADMIN = 200;
         
@@ -37,7 +37,5 @@ public class Constants {
      * 中断异常提示
      */
     public final static String INTERRUPT_EXCEPTION_ERRO_MSG = "Internal Server Error!";
-    
-    public final static int COMMODITY_PAGE_SIZE = 12; //商品每页记录数
     
 }
