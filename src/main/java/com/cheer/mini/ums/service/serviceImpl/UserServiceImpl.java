@@ -71,7 +71,6 @@ public class UserServiceImpl implements UserService {
 
 	public int createUser(CustomerUserCreateRequest userParam)
 			throws ServiceException {
-
 		if (StringUtil.isEmpty(userParam.getName()))
 			throw new ServiceException("姓名不能为空");
 		if (StringUtil.isEmpty(userParam.getNickname()))
@@ -101,8 +100,8 @@ public class UserServiceImpl implements UserService {
 		user.setUpdaterFk(user.getId());
 		this.encryptPassword(user);
 		return userDao.save(user);
-
 	}
+	
 
 
 

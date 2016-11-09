@@ -24,6 +24,7 @@
 			<mvc:exclude-mapping path="/pms/**"/>
 			<mvc:exclude-mapping path="/styles/**" />
 <<<<<<< HEAD
+<<<<<<< HEAD
 			<mvc:exclude-mapping path="/img/**" />
 =======
 			<mvc:exclude-mapping path="/commdity_images/**" />
@@ -34,6 +35,9 @@
 			<mvc:exclude-mapping path="/styles/**" />
 			<mvc:exclude-mapping path="/commdity_images/**" />
 >>>>>>> tommy
+=======
+			<mvc:exclude-mapping path="/images/**" />
+>>>>>>> jipei
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
 			<mvc:exclude-mapping path="/menu/**"/>
