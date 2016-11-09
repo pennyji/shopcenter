@@ -1,5 +1,5 @@
 package com.cheer.mini.base.exception;
-
+///kkkkk
 public class ServiceException extends RuntimeException {
 
     private static final long serialVersionUID = 793881703856258755L;

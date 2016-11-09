@@ -12,16 +12,16 @@ import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
 import com.cheer.mini.base.util.LogUtil;
 
-
 public class ExceptionHandler implements HandlerExceptionResolver {
 
-    @Override
     public ModelAndView resolveException(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) {
         ModelAndView mv = new ModelAndView("error/ajaxErrorPage");
         LogUtil.error(this.getClass(), ex.getMessage());
         String outputString = null;
         ResultEntity result = null;
         String message=null;
+        
+        //instanceof:在运行时指出 ex 是否是 ServiceException 或它子类的一个实例 返回布尔值
         if(ex instanceof ServiceException)
         {
             message = ex.getMessage();
