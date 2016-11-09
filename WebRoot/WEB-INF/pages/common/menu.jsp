@@ -1,42 +1,41 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.opensymphony.com/oscache" prefix="cache"%>
 
 <script>
+	$(function() {
 
-$(function(){
-	
-	$("#user_register").click(function(){
-		window.location = _path + "/ums/register/showRegister";
-	});
-	
-	$("#user_query").click(function(){
-		window.location = _path + "/ums/query/doQuery";
-	});
-	
-	$("#user_update").click(function(){
-		window.location = _path + "/ums/userUpdate/update";
-	});
-	
-});
+		$("#user_register").click(function() {
+			window.location = _path + "/ums/register/showRegister";
+		});
 
+	});
 </script>
 
-<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-	<div class="list-group">
-		<a href="#" class="list-group-item active">商品管理</a>
-		<a href="#" class="list-group-item">商品发布</a>
-		<a href="#" class="list-group-item">商品列表</a>
-		
-		<a href="#" class="list-group-item active">订单管理</a>
-		<a href="#" class="list-group-item">订单列表</a>
-		<a href="#" class="list-group-item">订单审核</a>
-		
-		<a href="#" class="list-group-item active">用户管理</a>
-		<a href="#" class="list-group-item" id="user_register" >用户注册</a>
-		<a href="#" class="list-group-item" id="user_update">修改个人信息</a>
-		<a href="#" class="list-group-item" id="user_query">查询全部用户</a>
+	<div id="menu_tab">
+		<div class="left_menu_corner"></div>
+		<ul class="menu">
+			<li><a href="index.html" class="nav1">首页</a></li>
+			<li class="divider"></li>
+			<li><a href="#" class="nav3">推荐商品</a></li>
+			<li class="divider" ></li>
+			<li><a href="contact.html" class="nav6">联系我们</a></li>
+			<li class="divider" style="margin-right: 400px;"></li>
+			<li><a href="#" class="nav4">登录</a></li>
+			<li class="divider"></li>
+			<li><a href="#" class="nav4">注册</a></li>
+			<li class="divider"></li>
+			<li><a href="#" class="nav2">个人中心</a></li>
+			
+		</ul>
+
+		<div class="right_menu_corner"></div>
 	</div>
-</div><!--/.sidebar-offcanvas-->
+	<!-- end of menu tab -->
+
+	<div class="crumb_navigation">
+		当前位置: <span class="current">首页</span>
+
+	</div>

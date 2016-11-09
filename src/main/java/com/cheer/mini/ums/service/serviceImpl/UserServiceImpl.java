@@ -50,13 +50,11 @@ public class UserServiceImpl implements UserService {
 		return false;
 	}
 
-	@Override
 	public User getByAccount(String account) {
 		User user = userDao.getByAccount(account);
 		return user;
 	}
 
-	@Override
 	public User adminLogin(String account, String password)
 			throws ServiceException {
 		User user = this.getByAccount(account);
@@ -68,10 +66,9 @@ public class UserServiceImpl implements UserService {
 			throw new ServiceException("用户名或密码错误");
 		return user;
 	}
-	@Override
+
 	public int createUser(CustomerUserCreateRequest userParam)
 			throws ServiceException {
-
 		if (StringUtil.isEmpty(userParam.getName()))
 			throw new ServiceException("姓名不能为空");
 		if (StringUtil.isEmpty(userParam.getNickname()))
@@ -101,8 +98,8 @@ public class UserServiceImpl implements UserService {
 		user.setUpdaterFk(user.getId());
 		this.encryptPassword(user);
 		return userDao.save(user);
-
 	}
+	
 
 
 

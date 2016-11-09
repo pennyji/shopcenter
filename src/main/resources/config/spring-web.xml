@@ -18,6 +18,7 @@
 			<mvc:exclude-mapping path="/ums/user/logout" />
 			<mvc:exclude-mapping path="/ums/user/validatelogin" />
 			<mvc:exclude-mapping path="/styles/**" />
+			<mvc:exclude-mapping path="/images/**" />
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
 			<bean class="com.cheer.mini.base.interceptors.LoginInterceptor">
