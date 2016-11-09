@@ -32,7 +32,6 @@
 		</ul>
 
 		<div class="right_menu_corner"></div>
-<<<<<<< HEAD
 	</div>
 	<!-- end of menu tab -->
 
@@ -40,17 +39,3 @@
 		当前位置: <span class="current">首页</span>
 
 	</div>
-=======
-	</div>
-	<!-- end of menu tab -->
-
-	<div class="crumb_navigation">
-		当前位置: <span class="current">首页</span>
-
-	</div>
-<<<<<<< HEAD
-</div><!--/.sidebar-offcanvas-->
-
-=======
->>>>>>> jipei
->>>>>>> master

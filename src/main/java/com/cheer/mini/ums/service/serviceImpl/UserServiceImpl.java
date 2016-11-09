@@ -69,8 +69,7 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	public int createUser(CustomerUserCreateRequest userParam)
-			throws ServiceException {
+	public int createUser(CustomerUserCreateRequest userParam)throws ServiceException{
 		if (StringUtil.isEmpty(userParam.getName()))
 			throw new ServiceException("姓名不能为空");
 		if (StringUtil.isEmpty(userParam.getNickname()))
@@ -101,13 +100,6 @@ public class UserServiceImpl implements UserService {
 		this.encryptPassword(user);
 		return userDao.save(user);
 	}
-	
-<<<<<<< HEAD
-=======
-
->>>>>>> master
-
-
 	
 
 }

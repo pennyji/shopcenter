@@ -3,31 +3,12 @@
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
-<<<<<<< HEAD
-=======
-<<<<<<< HEAD
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">管理后台</a>
-      </div>
-      <div class="navbar-right">
-	      <ul>
-	        <li style="float:left;" class="dropdown"><span class="navbar-brand" data-toggle="dropdown">您好, ${sessionScope.LOGIN_USER.nickname } !</span></li>
-	        <li style="float:left;"><a class="navbar-brand" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">退出登录</a></li>
-	      </ul>
-      </div>
-=======
->>>>>>> jipei
->>>>>>> master
 	
 		<div class="top_bar">
+			<div class="welcome">
+				<span>欢迎您： ${sessionScope.LOGIN_USER.nickname } </span>
+				<a style="color: #519ab9;" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">退出登录</a>
+			</div>
 			<div class="top_search">
 				<div class="search_text">
 					<a href="#">高级搜索</a>
@@ -36,13 +17,7 @@
 					type="image" src="/shopcenter/images/search.gif" class="search_bt" />
 			</div>
 
-			<div class="languages">
-				<div class="lang_text">语言:</div>
-				<a href="#" class="lang"><img src="/shopcenter/images/en.gif" alt=""
-					title="" border="0" /></a> <a href="#" class="lang"><img
-					src="/shopcenter/images/de.gif" alt="" title="" border="0" /></a>
-			</div>
-
+			
 		</div>
 		<div id="header">
 			<div id="logo">

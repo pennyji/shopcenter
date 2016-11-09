@@ -13,35 +13,11 @@
 		<mvc:interceptor>
 			<mvc:mapping path="/*/**" />
 			<mvc:mapping path="/" />
-<<<<<<< HEAD
-			<mvc:exclude-mapping path="/ums/user/login" />
-			<mvc:exclude-mapping path="/ums/register/showRegister" />
-			<mvc:exclude-mapping path="/ums/user/main" />
-			<mvc:exclude-mapping path="/pms/commdity_main"/>
-			<mvc:exclude-mapping path="/ums/user/logout" />
-		    <mvc:exclude-mapping path="/ums/**" /> 
-			<mvc:exclude-mapping path="/ums/user/validatelogin" />
-			<mvc:exclude-mapping path="/pms/**"/>
-			<mvc:exclude-mapping path="/styles/**" />
-<<<<<<< HEAD
-			<mvc:exclude-mapping path="/images/**" />
-=======
-<<<<<<< HEAD
-<<<<<<< HEAD
-			<mvc:exclude-mapping path="/img/**" />
-=======
-			<mvc:exclude-mapping path="/commdity_images/**" />
->>>>>>> cl
-=======
 		    <mvc:exclude-mapping path="/ums/**" /> 
 			<mvc:exclude-mapping path="/pms/**" />
 			<mvc:exclude-mapping path="/styles/**" />
 			<mvc:exclude-mapping path="/commdity_images/**" />
->>>>>>> tommy
-=======
 			<mvc:exclude-mapping path="/images/**" />
->>>>>>> jipei
->>>>>>> master
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
 			<mvc:exclude-mapping path="/menu/**"/>

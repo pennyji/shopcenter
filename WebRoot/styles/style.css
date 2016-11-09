@@ -17,6 +17,11 @@ height:auto;
 margin:auto;
 padding:0px;
 }
+.welcome{
+	color: #b3adad;
+    padding: 10px 0 0 10px;
+    float: left;
+}
 .top_bar{
 width:1000px;
 height:38px;

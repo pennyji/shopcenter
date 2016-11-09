@@ -16,10 +16,7 @@
 		    <mvc:exclude-mapping path="/ums/**" /> 
 			<mvc:exclude-mapping path="/pms/**" />
 			<mvc:exclude-mapping path="/styles/**" />
-<<<<<<< HEAD
-=======
 			<mvc:exclude-mapping path="/commdity_images/**" />
->>>>>>> master
 			<mvc:exclude-mapping path="/images/**" />
 			<mvc:exclude-mapping path="/scripts/**" />
 			<mvc:exclude-mapping path="/resources/**" />
