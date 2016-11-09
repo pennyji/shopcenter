@@ -1,12 +1,12 @@
 function login() {
-	var formData = $("#form").serialize2Json();
+	var formData = $("#form").serialize2Json();//封装成json的格式
 
 	$.ajax({
 		type : "POST",
 		contentType : "application/json;charset=utf-8",
 		url : _path + "/ums/user/validatelogin",
 		dataType : "json",
-		data : JSON.stringify(formData),
+		data : JSON.stringify(formData),//封装后转换成为Hash Map的格式传递给后台
 		success : function(data) {
 			if (data.status == "S") {
 				if(data.result.accountTypeFk ==	200){
@@ -22,5 +22,4 @@ function login() {
 			alert("error");
 		}
 	});
-
 }

@@ -5,8 +5,8 @@
 <!DOCTYPE html>
 <html lang="zh-cn">
 <head>
-<jsp:include page="../common/meta.jsp" />
-<jsp:include page="../common/resources.jsp" />
+ <jsp:include page="../common/meta.jsp" />
+<jsp:include page="../common/resources.jsp" /> 
 <script src="${path}/scripts/ums/login.js?20160811" ></script>
 <style type="text/css">
 body {
@@ -55,6 +55,7 @@ $(function() {
 </head>
 <body>
 
+<<<<<<< HEAD
 	<p align="center"><a href="${path}/pms/product/showIndex">商城首页</a></p>
 
 	<div class="container">
@@ -72,6 +73,13 @@ $(function() {
 			<a href="">忘记密码</a>
 			</p>
 			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">登录</button>
+=======
+		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/myvalidatelogin">
+			<h2 class="form-signin-heading">Please sign in</h2>
+			<input name = "account" class="form-control" placeholder="Account" required autofocus>
+			<input name ="password" type="password" class="form-control" placeholder="Password" required>
+			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">Sign in</button>
+>>>>>>> master
 		</form>
 	</div>
 	

@@ -13,5 +13,6 @@
 	<jsp:include page="../common/customerHeader.jsp" />
 	<br><br>
 	<h3 align="center">欢迎光临 cheer 商城！</h3>
+
 </body>
 </html>

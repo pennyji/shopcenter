@@ -4,14 +4,18 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.beans.factory.annotation.Autowired;
+<<<<<<< HEAD
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+=======
+>>>>>>> master
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+<<<<<<< HEAD
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
@@ -58,6 +62,25 @@ public class ValidateAjaxController {
 		HttpHeaders headers = new HttpHeaders();
 		return new ResponseEntity<ResultEntity>(result, headers,
 				HttpStatus.CREATED);
+=======
+import com.cheer.mini.ums.dto.request.LoginRequest;
+import com.cheer.mini.ums.service.UserService;
+
+@Controller
+@RequestMapping("ums/validate")
+public class ValidateAjaxController {
+	
+	@Autowired
+	private UserService userService;
+
+	@RequestMapping("validateAjax")
+	public ModelAndView validateAjax(@RequestBody LoginRequest loginRequest,HttpServletRequest request,HttpServletResponse response){
+		
+		ModelAndView modelAndView = new ModelAndView();
+		String account = loginRequest.getAccount();
+		
+		userService.getByAccount(account);
+		return modelAndView;
 	}
 	
 }

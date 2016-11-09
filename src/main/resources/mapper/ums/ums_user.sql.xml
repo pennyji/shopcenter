@@ -68,5 +68,5 @@
 		SET name =#{name},nickname =#{nickname}
 		WHERE account =#{account}
 	</update>
-	
+
 </mapper> 

@@ -1,5 +1,7 @@
 package com.cheer.mini.ums.service.serviceImpl;
 
+import java.util.List;
+
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
@@ -17,6 +19,7 @@ import com.cheer.mini.ums.service.UserService;
 
 @Service
 public class UserServiceImpl implements UserService {
+
 
 	private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
 
@@ -101,6 +104,16 @@ public class UserServiceImpl implements UserService {
 		return userDao.save(user);
 
 	}
+	@Override
+	public List<User> getUserAll() {
+		List<User> list=userDao.getUserAll();
+		return list;
+	}
 
+	@Override
+	public User get(String id) {
+		User user=userDao.get(id);
+		return user;
+	}
 
 }

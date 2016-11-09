@@ -1,5 +1,7 @@
 package com.cheer.mini.ums.service;
 
+import java.util.List;
+
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
@@ -9,6 +11,10 @@ import com.cheer.mini.ums.model.User;
  * @author Lucy
  */
 public interface UserService {
+	
+    public User get(String id);
+	
+	public List<User> getUserAll();
 
     public User getByAccount(String account);
 

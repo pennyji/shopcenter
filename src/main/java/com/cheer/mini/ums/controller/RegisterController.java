@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
+<<<<<<< HEAD
+=======
+import com.cheer.mini.base.Constants;
+>>>>>>> master
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
