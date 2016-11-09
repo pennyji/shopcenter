@@ -31,7 +31,14 @@ public class LoginController {
 	@RequestMapping("/login")
 	public ModelAndView login(final HttpServletRequest request,
 			final HttpServletResponse response) {
-		ModelAndView mv = new ModelAndView("ums/login");
+		ModelAndView mv = new ModelAndView("/ums/login");
+		return mv;
+	}
+	
+	@RequestMapping("/main")
+	public ModelAndView showMain(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		ModelAndView mv = new ModelAndView("main");
 		return mv;
 	}
 
@@ -57,6 +64,8 @@ public class LoginController {
 		return new ResponseEntity<ResultEntity>(result, headers,
 				HttpStatus.CREATED);
 	}
+
+	
 
 	/*
 	 * @RequestMapping(value = "/validatelogin") public void validateLogin(
@@ -98,7 +107,7 @@ public class LoginController {
 	public ModelAndView adminIndex(final HttpServletRequest request,
 			final HttpServletResponse response) {
 		System.out.println("adminIndex()...");
-		ModelAndView mv = new ModelAndView("ums/adminIndex");
+		ModelAndView mv = new ModelAndView("main");
 		return mv;
 	}
 

@@ -56,7 +56,7 @@
 <body>
 	<div class="container">
 
-		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/validatelogin">
+		<form class="form-signin" role="form" id = "form" >
 			<h2 class="form-signin-heading">Please sign in</h2>
 			<div><input name="account" id="account" class="form-control" placeholder="Account" required autofocus>
 			<span id="act"></span></div>

@@ -22,7 +22,7 @@
 		font-weight: 900;
 	}
 </style>
-
+<jsp:include page="../WEB-INF/pages/common/meta.jsp" />
 
 </head>
 <body>
@@ -31,12 +31,12 @@
 
 <%-- 根据用户是否登录，显示不同的链接 --%>
 <c:choose>
-	<c:when test="${empty sessionScope.sessionUser }">
-		  <a href="<c:url value=''/>" target="_parent">其然会员登录</a> |&nbsp; 
-		  <a href="<c:url value=''/>" target="_parent">注册其然会员</a>	
+	<c:when test="${empty LOGIN_USER.account  }">
+		  <a href="${path}/ums/user/login " target="_parent">其然会员登录</a> |&nbsp; 
+		  <a href="${path}/ums/register/showRegister" target="_parent">注册其然会员</a>	
 	</c:when>
 	<c:otherwise>
-		      其然会员：${sessionScope.sessionUser.loginname }&nbsp;&nbsp;|&nbsp;&nbsp;
+		      其然会员：${LOGIN_USER.account }&nbsp;&nbsp;|&nbsp;&nbsp;
 		  <a href="<c:url value=''/>" target="body">我的购物车</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		  <a href="<c:url value=''/>" target="body">我的其然订单</a>&nbsp;&nbsp;|&nbsp;&nbsp;
 		  <a href="<c:url value=''/>" target="body">修改密码</a>&nbsp;&nbsp;|&nbsp;&nbsp;
