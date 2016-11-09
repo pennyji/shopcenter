@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- parameterType是参数类型 -->
+<mapper namespace="com.cheer.mini.category.dao.CategoryDao">
+	<!-- <select id="findAll" parameterType="String" resultType="java.util.HashMap">
+		
+	</select> -->
+		
+<!-- <mapper namespace="com.cheer.mini.category.dao.CategoryDao">  
+    <resultMap type="com.cheer.mini.category.model.Category" id="Category">  
+        <id property="id" column="SYS_CODE_ID"/>  
+        <id property="orderNo" column="ORDER_NO"/>  
+        <id property="name" column="NAME"/>  
+    </resultMap>  
+ -->
+
+
+</mapper>

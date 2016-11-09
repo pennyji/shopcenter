@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<!-- parameterType是参数类型 -->
+<mapper namespace="com.cheer.mini.pms.dao.CommodityDao">
+	<select id="findById" parameterType="String" resultType="Commodity">
+		SELECT * from pms_commodity where commodityId = #{commodityId}
+	</select>
+		
+
+
+
+
+</mapper>
