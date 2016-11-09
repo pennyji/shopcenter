@@ -14,9 +14,9 @@
 	<meta http-equiv="description" content="This is my page">
 	<meta http-equiv="content-type" content="text/html;charset=utf-8">
 	<!-- /shopcenter/WebRoot/menu/mymenu.js -->
-	<script type="text/javascript" src="<c:url value='../jquery/jquery-1.5.1.js'/>"></script>
-	<script type="text/javascript" src="<c:url value='../menu/mymenu.js'/>"></script>
-	<link rel="stylesheet" href="<c:url value='../menu/mymenu.css'/>" type="text/css" media="all">
+	<script type="text/javascript" src="<c:url value='/jquery/jquery-1.5.1.js'/>"></script>
+	<script type="text/javascript" src="<c:url value='/menu/mymenu.js'/>"></script>
+	<link rel="stylesheet" href="<c:url value='/menu/mymenu.css'/>" type="text/css" media="all">
 	<link rel="stylesheet" type="text/css" href="<c:url value='/styles/left.css'/>">
 	
 	<script language="javascript">
@@ -27,12 +27,12 @@ $(function() {
 	bar.config.radioButton=true;
 	
 	
-	<c:forEach items="${parents}" var="parent">
+	/* <c:forEach items="${parents}" var="parent">
 	  <c:forEach items="${parent.children}" var="child">
 		bar.add("${parent.cname}", "${child.cname}", "", "body");
 	  </c:forEach>
-	</c:forEach>
-	/* bar.add("图书", "武侠", "/shopcenter/page/list.jsp", "body");
+	</c:forEach> */
+	 bar.add("图书", "武侠", "/shopcenter/page/list.jsp", "body");
 	bar.add("图书", "玄幻", "/shopcenter/page/list.jsp", "body");
 	bar.add("图书", "修真", "/shopcenter/page/list.jsp", "body");
 	
@@ -48,7 +48,7 @@ $(function() {
 	bar.add("电脑/办公用品", "电脑整机", "/shopcenter/page/list.jsp", "body");
 	bar.add("电脑/办公用品", "电脑配件", "/shopcenter/page/list.jsp", "body");
 	bar.add("电脑/办公用品", "游戏设备", "/shopcenter/page/list.jsp", "body");
-	bar.add("电脑/办公用品", "网络设备", "/shopcenter/page/list.jsp", "body"); */
+	bar.add("电脑/办公用品", "网络设备", "/shopcenter/page/list.jsp", "body"); 
 	
 	$("#menu").html(bar.toString());
 });
