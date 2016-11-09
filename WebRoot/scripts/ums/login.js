@@ -9,10 +9,10 @@ function login() {
 		data : JSON.stringify(formData),//封装后转换成为Hash Map的格式传递给后台
 		success : function(data) {
 			if (data.status == "S") {
-				if (data.result.accountTypeFk==200) {
-					window.location = _path + "/ums/user/index";
-				}else {
-					window.location = _path + "/ums/user/login";
+				if(data.result.accountTypeFk ==	200){
+					window.location = _path + "/ums/user/adminIndex";
+				}else{
+					window.location = _path + "/ums/user/customerIndex";
 				}
 			} else if (data.status == "F") {
 				alert(data.message);

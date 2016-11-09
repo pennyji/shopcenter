@@ -4,22 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
-<title>Insert title here</title>
-</head>
-<body>
-customerIndex.jsp
-=======
-
 <jsp:include page="../common/meta.jsp" />
+<title>cheer ShopCenter</title>
 
-<title>Insert title here</title>
+<style type="text/css">
+body {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background-color: #eee;
+}
+</style>
+
 </head>
 <body>
-	<jsp:include page="../common/customerHeader.jsp" />
+	<p align="right">你好,请<a href="${path}/ums/user/showLogin">登录</a>|免费<a href="${path}/ums/register/showRegister">注册</a></p>
 	<br><br>
 	<h3 align="center">欢迎光临 cheer 商城！</h3>
-
->>>>>>> tommy
 </body>
 </html>

@@ -28,102 +28,83 @@ import com.cheer.mini.ums.service.UserService;
 @Controller
 @RequestMapping("/ums/user")
 public class LoginController {
+	@Autowired
+	private UserService userService;
 
-    @Autowired
-    private UserService userService;
-    /*
-     * 
-     * 进入首页的路径跳转的是一个controller
-     * 
-     * */
-    @RequestMapping("/login")
-    public String login(final HttpServletRequest request, final HttpServletResponse response) {
-//        ModelAndView mv = new ModelAndView("pms/commodity/All");
-    	//直接跳转action
-        return "redirect:/pms/commodity/all";
-    }
-    
+	@RequestMapping("/showLogin")
+	public ModelAndView login(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		ModelAndView mv = new ModelAndView("ums/login");
+		return mv;
+	}
 	
-	/*
-	 * 
-	 * 用户登录，并根据不同的用户类型跳转页面
-	 * 
-	 * 
-	 * */
+	@RequestMapping("/login")
+	public String toShowIndex(){
+		return "redirect:/pms/product/showIndex";
+	}
 
-    @RequestMapping(value = "/validatelogin")
-    public ResponseEntity<ResultEntity> validateLogin(final HttpServletRequest request, @RequestBody LoginRequest loginRequest, UriComponentsBuilder builder) throws ServiceException, Exception {
-       
-    	ResultEntity result = null;
-        User user = userService.adminLogin(loginRequest.getAccount(), loginRequest.getPassword());
-        request.getSession().setAttribute(Constants.CURRENT_USER, user);
-        result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS, "登录成功", user);
-        System.out.println(result);
-        HttpHeaders headers = new HttpHeaders();
-        headers.setLocation(builder.path("/ums/user/validatelogin").buildAndExpand().toUri());
-        return new ResponseEntity<ResultEntity>(result, headers, HttpStatus.CREATED);
-    }
-    
-    /*
-     * 用户注册注册用的方法
-     * 
-     * */
-    @RequestMapping("/register")
-    public ResponseEntity<ResultEntity> register(final HttpServletRequest request, @RequestBody CustomerUserCreateRequest customerUserCreateRequest) 
-    		throws ServiceException, Exception {
-    	ResultEntity result = null;
-    	int user=userService.createUser(customerUserCreateRequest);
-    	 result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS, "注册成功",user);
-    	 HttpHeaders headers = new HttpHeaders();
-    	 return new ResponseEntity<ResultEntity> (result,headers,HttpStatus.CREATED);
-    }
-    
-    
-    /*
-     * 
-     * 用户查看个人信息
-     * 
-     * */
-    @RequestMapping("/seeuser")
-    public ModelAndView seeuser(@RequestParam("userid") String name) {
-       User user= userService.get(name);
-    	ModelAndView mv = new ModelAndView();
-    	mv.addObject(Constants.CURRENT_USER, user);
-    	mv.setViewName("ums/user");
-        return mv;
-    }
-    	/*
-    	 * 
-    	 * 用户退出的登录的方法，就是关闭session
-    	 * 
-    	 * */
-    
-    @RequestMapping("/logout")
-    public ModelAndView logout(final HttpServletRequest request, final HttpServletResponse response) {
-        ModelAndView mv = new ModelAndView("ums/login");
-        request.getSession().removeAttribute(Constants.CURRENT_USER);
-        return mv;
-    }
-    	/*
-    	 * 管理员登录成功后跳转到管理页面
-    	 * 
-    	 * */
-    @RequestMapping("/index")
-    public ModelAndView index(final HttpServletRequest request, final HttpServletResponse response) {
-        ModelAndView mv = new ModelAndView("ums/index");
-        return mv;
-    }
-    	/*
-    	 * 
-    	 * 跳转到管理用户的JSP
-    	 * 
-    	 * */
-    @RequestMapping("/adminuser")
-    public ModelAndView adminuser(final HttpServletRequest request, final HttpServletResponse response) {
-    	List<User> list=userService.getUserAll();
-    	ModelAndView mv = new ModelAndView();
-    	mv.addObject(Constants.CURRENT_USER, list);
-    	mv.setViewName("ums/adminuser");
-        return mv;
-    }
+	@RequestMapping(value = "/validatelogin")
+	public ResponseEntity<ResultEntity> validateLogin(
+			final HttpServletRequest request,
+			final HttpServletResponse response,
+			@RequestBody LoginRequest loginRequest, UriComponentsBuilder builder)
+			throws ServiceException, Exception {
+		ResultEntity result = null;
+
+		User user = userService.adminLogin(loginRequest.getAccount(),
+				loginRequest.getPassword());
+
+		request.getSession().setAttribute(Constants.CURRENT_USER, user);
+
+		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,
+				"登录成功", user);
+
+		HttpHeaders headers = new HttpHeaders();
+		headers.setLocation(builder.path("/ums/user/validatelogin")
+				.buildAndExpand().toUri());
+		return new ResponseEntity<ResultEntity>(result, headers,
+				HttpStatus.CREATED);
+	}
+
+	@RequestMapping("/logout")
+	public ModelAndView logout(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		ModelAndView mv = new ModelAndView("ums/login");
+		request.getSession().removeAttribute(Constants.CURRENT_USER);
+		return mv;
+	}
+
+	@RequestMapping("/customerIndex")
+	public ModelAndView customerIndex(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		System.out.println("customerIndex()...");
+		ModelAndView mv = new ModelAndView("ums/customerIndex");
+		return mv;
+	}
+	
+	@RequestMapping("/adminIndex")
+	public ModelAndView adminIndex(final HttpServletRequest request,
+			final HttpServletResponse response) {
+		System.out.println("adminIndex()...");
+		ModelAndView mv = new ModelAndView("ums/adminIndex");
+		return mv;
+	}
+
+	/*
+	 * @RequestMapping("/index") public ModelAndView adminIndex(final
+	 * HttpServletRequest request,final HttpServletResponse
+	 * response,@RequestBody LoginRequest loginRequest) {
+	 * System.out.println("adminIndex()..."); ModelAndView modelAndView = new
+	 * ModelAndView(); User user =
+	 * userService.adminLogin(loginRequest.getAccount(),
+	 * loginRequest.getPassword()); if(user != null){ if
+	 * (user.getAccountTypeFk() == Constants.AccountType.ACCOUNT_TYPE_CUSTOMER)
+	 * { System.out.println("1"); modelAndView = new
+	 * ModelAndView("ums/customerIndex"); } if (user.getAccountTypeFk() ==
+	 * Constants.AccountType.ACCOUNT_TYPE_ADMIN) { System.out.println("2");
+	 * modelAndView = new ModelAndView("ums/adminIndex"); } }
+	 * 
+	 * return modelAndView; }
+	 */
+	
 }

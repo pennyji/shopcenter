@@ -17,4 +17,9 @@ public interface UserDao {
     public List<User> getUserAll();
     
 
+    public List<User> queryAll();
+    
+    public void update(User user);
+
+
 }

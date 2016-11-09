@@ -1,10 +1,11 @@
 function register() {
-	var formData = $("#form").serialize2Json();
+	var formData = $("#form").serialize2Json()
 	
 	$.ajax({
 		type : "POST",
 		contentType : "application/json;charset=utf-8",
-		url : "/shopcenter/ums/user/register",
+
+		url : _path + "/ums/register/validateRegister",
 		dataType : "json",
 		data : JSON.stringify(formData),
 		success : function(data) {

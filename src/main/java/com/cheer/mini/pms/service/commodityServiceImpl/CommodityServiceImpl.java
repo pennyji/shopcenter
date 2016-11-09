@@ -27,11 +27,7 @@ public class CommodityServiceImpl implements CommodityService {
 	
 	 @Autowired
 	 private CommodityDao commodityDao;
-	public Commodity findById(String commodityId){
-		Commodity commodity = commodityDao.findById(commodityId);
-		
-		return commodity;
-	}
+
 	
 	//private QueryRunner qr = new TxQueryRunner();
 	
@@ -45,7 +41,7 @@ public class CommodityServiceImpl implements CommodityService {
 		/*
 		 * 1.得到ps
 		 */
-		int ps = Constants.COMMODITY_PAGE_SIZE;//每一页记录数
+
 		/*
 		 * 2.通过exprList来生产where子句
 		 */
@@ -90,4 +86,42 @@ public class CommodityServiceImpl implements CommodityService {
 		exprlist.add(new Expression("edition","is null",null));
 		commodityServiceImpl.findByCriteria(exprlist, 10);
 	}*/
+
+
+	@Override
+	public Commodity getcommodityId(String commodityid) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public Commodity getcommodityName(String commodityname) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commodity> getcommodityPrice(double price1, double price2) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commodity> getcommodityDetail(String commoditydetail) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commodity> getcommodityType(String commoditytype) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Commodity> getcommodityAll() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }

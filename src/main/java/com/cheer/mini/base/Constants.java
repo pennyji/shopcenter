@@ -22,7 +22,7 @@ public class Constants {
         public static final int ACCOUNT_TYPE_CUSTOMER = 100;
         
         /**
-         * 管理员账�?
+         * 管理员账号
          */
         public static final int ACCOUNT_TYPE_ADMIN = 200;
         

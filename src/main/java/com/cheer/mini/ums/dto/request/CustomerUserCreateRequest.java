@@ -1,7 +1,5 @@
 package com.cheer.mini.ums.dto.request;
 
-import com.cheer.mini.base.Constants;
-
 public class CustomerUserCreateRequest {
 
     private String name;
@@ -15,9 +13,7 @@ public class CustomerUserCreateRequest {
     private short gender;
 
     private  int accountTypeFk;
-    
-    
-   
+
     public String getName() {
         return name;
     }
@@ -65,9 +61,5 @@ public class CustomerUserCreateRequest {
 	public void setAccountTypeFk(int accountTypeFk) {
 		this.accountTypeFk = accountTypeFk;
 	}
-
-	
-		
-    
 
 }
