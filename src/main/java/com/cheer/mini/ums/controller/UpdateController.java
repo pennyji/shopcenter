@@ -65,6 +65,5 @@ public class UpdateController {
 		ModelAndView modelAndView = new ModelAndView("/ums/index");
 		return modelAndView;
 	}
-	
-	
+
 }

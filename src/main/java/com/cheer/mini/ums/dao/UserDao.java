@@ -8,15 +8,12 @@ public interface UserDao {
 
     public User getByAccount(String account);
 
-    public User get(String id);
-
     public User login(String account, String password);
 
     public int save(User user);
-
+    
     public List<User> queryAll();
     
     public void update(User user);
-
 
 }

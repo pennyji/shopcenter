@@ -10,7 +10,6 @@
 
 <script src="${path}/scripts/ums/register.js?20161026" ></script>
 
-
 <style type="text/css">
 body {
   padding-top: 40px;

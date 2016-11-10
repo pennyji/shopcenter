@@ -2,6 +2,7 @@ package com.cheer.mini.ums.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -16,6 +17,7 @@ import com.cheer.mini.base.model.ResultEntityHashMapImpl;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
+
 
 @Controller
 @RequestMapping("/ums/validate")

@@ -62,5 +62,4 @@ public class CustomerUserCreateRequest {
 		this.accountTypeFk = accountTypeFk;
 	}
 
-
 }

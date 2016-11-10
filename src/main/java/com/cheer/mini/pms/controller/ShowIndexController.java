@@ -10,9 +10,9 @@ public class ShowIndexController {
 	
 	@RequestMapping("/showIndex")
 	public ModelAndView showIndex(){
-		
-		
+				
 		ModelAndView modelAndView = new ModelAndView("pms/index");
+
 		return modelAndView;
 	}
 	

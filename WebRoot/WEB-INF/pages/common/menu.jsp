@@ -1,28 +1,44 @@
-<%@ page language="java" pageEncoding="UTF-8" %>
-<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags" %>
+<%@ page language="java" pageEncoding="UTF-8"%>
+<%@ taglib prefix="shiro" uri="http://shiro.apache.org/tags"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>  
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib uri="http://www.opensymphony.com/oscache" prefix="cache"%>
 
 <script>
+	$(function() {
 
-$(function(){
-	
-	$("#user_register").click(function(){
-		window.location = _path + "/ums/register/showRegister";
-	});
-	
-	$("#user_query").click(function(){
-		window.location = _path + "/ums/query/doQuery";
-	});
-	
-	$("#user_update").click(function(){
-		window.location = _path + "/ums/userUpdate/update";
-	});
-	
-});
+		$("#user_register").click(function() {
+			window.location = _path + "/ums/register/showRegister";
+		});
 
+	});
 </script>
+
+	<div id="menu_tab">
+		<div class="left_menu_corner"></div>
+		<ul class="menu">
+			<li><a href="index.html" class="nav1">首页</a></li>
+			<li class="divider"></li>
+			<li><a href="#" class="nav3">推荐商品</a></li>
+			<li class="divider" ></li>
+			<li><a href="contact.html" class="nav6">联系我们</a></li>
+			<li class="divider" style="margin-right: 400px;"></li>
+			<li><a href="${path}/ums/user/showLogin" class="nav4">登录</a></li>
+			<li class="divider"></li>
+			<li><a href="${path}/ums/register/showRegister" class="nav4">注册</a></li>
+			<li class="divider"></li>
+			<li><a href="${path }/ums/userUpdate/showEdit" class="nav2">个人中心</a></li>
+		</ul>
+
+		<div class="right_menu_corner"></div>
+	</div>
+	<!-- end of menu tab -->
+
+	<div class="crumb_navigation">
+		当前位置: <span class="current">首页</span>
+
+	</div>
+	<!-- end of menu tab -->
 
 <div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
 	<div class="list-group">

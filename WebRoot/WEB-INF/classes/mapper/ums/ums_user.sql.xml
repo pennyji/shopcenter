@@ -61,7 +61,7 @@
 		*
 		FROM ums_user
 	</select>
-	
+
 	<update id="update" parameterType="String">
 		UPDATE
 		ums_user

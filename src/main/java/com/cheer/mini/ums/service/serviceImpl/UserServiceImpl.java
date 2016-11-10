@@ -20,7 +20,6 @@ import com.cheer.mini.ums.service.UserService;
 @Service
 public class UserServiceImpl implements UserService {
 
-
 	private RandomNumberGenerator randomNumberGenerator = new SecureRandomNumberGenerator();
 
 	private String algorithmName = "md5";
@@ -70,8 +69,9 @@ public class UserServiceImpl implements UserService {
 		return user;
 	}
 
-	public int createUser(CustomerUserCreateRequest userParam)
-			throws ServiceException {
+
+
+	public int createUser(CustomerUserCreateRequest userParam)throws ServiceException{
 
 		if (StringUtil.isEmpty(userParam.getName()))
 			throw new ServiceException("姓名不能为空");
@@ -105,7 +105,4 @@ public class UserServiceImpl implements UserService {
 
 	}
 	
-
-	
-
 }

@@ -1,6 +1,5 @@
 package com.cheer.mini.pms.controller;
 
-
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -124,4 +123,5 @@ public class CommodityController {
         ModelAndView mv = new ModelAndView("ums/register");
         return mv;
     }
+
 }
