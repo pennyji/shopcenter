@@ -7,6 +7,7 @@
 <jsp:include page="../common/meta.jsp" />
 <jsp:include page="../common/resources.jsp" />
 <script src="${path}/scripts/ums/register.js?20161031" ></script>
+
 <style type="text/css">
 body {
   padding-top: 40px;
@@ -19,14 +20,14 @@ body {
   margin: 0 auto;
 }
 .form-signin .form-control {
-	  position: relative;
-	  height: auto;
-	  -webkit-box-sizing: border-box;
-	     -moz-box-sizing: border-box;
-	          box-sizing: border-box;
-	  padding: 10px;
-	  font-size: 16px;
-	}
+  position: relative;
+  height: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 10px;
+  font-size: 16px;
+}
 </style>
 
 <script type="text/javascript">
@@ -113,9 +114,8 @@ body {
 <body>
 
 	<p align="center"><a href="${path}/pms/product/showIndex">商城首页</a></p>
-	
 	<form id="form" class="form-signin">
-	<h3>用户注册</h3>
+		<h3>用户注册</h3>
 		<input type="text" name="name" id="name" class="form-control" placeholder="姓名" required autofocus/>
 		<span id="name_msg"></span>
 		<br>
