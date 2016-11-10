@@ -5,18 +5,13 @@
 
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-
-<jsp:include page="../common/meta.jsp" />
-
 <title>Insert title here</title>
-</head>
+<head>
 <jsp:include page="../common/meta.jsp" />
 <jsp:include page="../common/resources.jsp" />
 <script src="${path }/scripts/ums/login.js?20160811"></script>
 </head>
 <body>
-
 	<div id="main_container">
 	<jsp:include page="../common/header.jsp" />
 	<div id="main_content">

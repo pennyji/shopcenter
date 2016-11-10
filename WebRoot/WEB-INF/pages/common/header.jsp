@@ -6,8 +6,11 @@
 	
 		<div class="top_bar">
 			<div class="welcome">
+			<c:if test="${sessionScope.LOGIN_USER.nickname != null}">
 				<span>欢迎您： ${sessionScope.LOGIN_USER.nickname } </span>
 				<a style="color: #519ab9;" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">退出登录</a>
+			</c:if>
+				
 			</div>
 			<div class="top_search">
 				<div class="search_text">
