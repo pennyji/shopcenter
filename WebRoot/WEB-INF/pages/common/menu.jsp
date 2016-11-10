@@ -23,12 +23,11 @@
 			<li class="divider" ></li>
 			<li><a href="contact.html" class="nav6">联系我们</a></li>
 			<li class="divider" style="margin-right: 400px;"></li>
-			<li><a href="#" class="nav4">登录</a></li>
+			<li><a href="${path}/ums/user/showLogin" class="nav4">登录</a></li>
 			<li class="divider"></li>
-			<li><a href="#" class="nav4">注册</a></li>
+			<li><a href="${path}/ums/register/showRegister" class="nav4">注册</a></li>
 			<li class="divider"></li>
-			<li><a href="#" class="nav2">个人中心</a></li>
-			
+			<li><a href="${path }/ums/userUpdate/showEdit" class="nav2">个人中心</a></li>
 		</ul>
 
 		<div class="right_menu_corner"></div>
@@ -39,8 +38,4 @@
 		当前位置: <span class="current">首页</span>
 
 	</div>
-<<<<<<< HEAD
-</div><!--/.sidebar-offcanvas-->
-
-=======
->>>>>>> jipei
+	<!-- end of menu tab -->

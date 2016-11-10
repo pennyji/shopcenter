@@ -1,11 +1,32 @@
-<<<<<<< HEAD
-/com
-<<<<<<< HEAD
-/config
-/log4j.properties
+/build/
+
+*.DS_Store
+
+*.idea
+
+*.project
+
+*.[oa]
+
+/.settings/
+
+*/.settings/
+
+*/.metadata/
+
+*.classpath
+
+*~
+
+META-INF/
+
+.name
+
+*target/
+
+*/.idea/
+
+*.iml
+
+*jdbc.properties
 /mapper
-=======
->>>>>>> tommy
-=======
-/config
->>>>>>> jipei

@@ -5,27 +5,9 @@
 
 <!DOCTYPE html>
 <html lang="zh-cn">
-<head>
-<<<<<<< HEAD
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<<<<<<< HEAD
 <title>Insert title here</title>
-</head>
-<body>
-customerIndex.jsp
-=======
-
-<jsp:include page="../common/meta.jsp" />
-
-<title>Insert title here</title>
-</head>
-<body>
-	<jsp:include page="../common/customerHeader.jsp" />
-	<br><br>
-	<h3 align="center">欢迎光临 cheer 商城！</h3>
-
->>>>>>> tommy
-=======
+<head>
 <jsp:include page="../common/meta.jsp" />
 <jsp:include page="../common/resources.jsp" />
 <script src="${path }/scripts/ums/login.js?20160811"></script>
@@ -284,7 +266,6 @@ customerIndex.jsp
 	</div><!-- end main content -->
 	<jsp:include page="../common/footer.jsp" />
 	</div>
->>>>>>> jipei
 </body>
 
 </html>
