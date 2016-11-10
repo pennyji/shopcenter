@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /build/
 
 *.DS_Store
@@ -29,3 +30,37 @@ META-INF/
 *.iml
 
 *jdbc.properties
+=======
+*.class
+.classpath
+rebel.xml
+
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
+
+# Package Files #
+*.jar
+*.war
+*.ear
+
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
+
+# Project settings
+.project
+.classpath
+.springBeans
+.settings/
+bin/
+target
+\target\
+
+*.iml
+.idea/
+.externalToolBuilders/
+.mymetadata
+.myumldata
+
+# Project Logs
+logs/
+>>>>>>> tommy

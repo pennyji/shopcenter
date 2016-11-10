@@ -3,6 +3,7 @@ package com.cheer.mini.ums.controller;
 import javax.servlet.http.HttpServletRequest;
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 import javax.servlet.http.HttpServletResponse;
 =======
 
@@ -65,6 +66,8 @@ public class ValidateAjaxController {
 }
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> tommy
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -121,5 +124,4 @@ public class ValidateAjaxController {
 				HttpStatus.CREATED);
 	}
 }
-
 

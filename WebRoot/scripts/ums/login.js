@@ -22,5 +22,4 @@ function login() {
 			alert("error");
 		}
 	});
-
 }

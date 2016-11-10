@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /build/
 
 *.DS_Store
@@ -29,4 +30,9 @@ META-INF/
 *.iml
 
 *jdbc.properties
+=======
+/com
+/config
+/log4j.properties
+>>>>>>> tommy
 /mapper

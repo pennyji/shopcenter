@@ -22,4 +22,9 @@ public interface UserDao {
     public void update(User user);
 
 
+    public List<User> queryAll();
+    
+    public void update(User user);
+
+
 }

@@ -74,6 +74,7 @@ public class LoginController {
 		return mv;
 	}
 
+
 	@RequestMapping("/customerIndex")
 	public ModelAndView customerIndex(final HttpServletRequest request,
 			final HttpServletResponse response) {
@@ -89,6 +90,7 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView("ums/adminIndex");
 		return mv;
 	}
+
 
 	/*
 	 * @RequestMapping("/index") public ModelAndView adminIndex(final
