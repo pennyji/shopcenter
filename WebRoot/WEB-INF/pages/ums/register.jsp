@@ -26,6 +26,7 @@ body {
 	  padding: 10px;
 	  font-size: 16px;
 	}
+
 </style>
 
 <script type="text/javascript">
@@ -112,9 +113,10 @@ body {
 <body>
 
 	<p align="center"><a href="${path}/pms/product/showIndex">商城首页</a></p>
-	
+
 	<form id="form" class="form-signin">
-	<h3>用户注册</h3>
+		<h3>用户注册</h3>
+
 		<input type="text" name="name" id="name" class="form-control" placeholder="姓名" required autofocus/>
 		<span id="name_msg"></span>
 		<br>

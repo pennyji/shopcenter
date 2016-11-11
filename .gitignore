@@ -1,31 +1,33 @@
-/build/
 
-*.DS_Store
+*.class
+.classpath
+rebel.xml
 
-*.idea
+# Mobile Tools for Java (J2ME)
+.mtj.tmp/
 
-*.project
+# Package Files #
+*.jar
+*.war
+*.ear
 
-*.[oa]
+# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
+hs_err_pid*
 
-/.settings/
-
-*/.settings/
-
-*/.metadata/
-
-*.classpath
-
-*~
-
-META-INF/
-
-.name
-
-*target/
-
-*/.idea/
+# Project settings
+.project
+.classpath
+.springBeans
+.settings/
+bin/
+target
+\target\
 
 *.iml
+.idea/
+.externalToolBuilders/
+.mymetadata
+.myumldata
 
-*jdbc.properties
+# Project Logs
+logs/

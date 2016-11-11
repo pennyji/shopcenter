@@ -1,5 +1,7 @@
 package com.cheer.mini.ums.controller;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -10,6 +12,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -17,6 +20,7 @@ import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
+import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.dto.request.LoginRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
@@ -36,7 +40,7 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String toShowIndex(){
-		return "redirect:/pms/product/showIndex";
+		return "redirect:/pms/product/findByHot";
 	}
 
 	@RequestMapping(value = "/validatelogin")
@@ -70,6 +74,7 @@ public class LoginController {
 		return mv;
 	}
 
+
 	@RequestMapping("/customerIndex")
 	public ModelAndView customerIndex(final HttpServletRequest request,
 			final HttpServletResponse response) {
@@ -85,6 +90,7 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView("ums/adminIndex");
 		return mv;
 	}
+
 
 	/*
 	 * @RequestMapping("/index") public ModelAndView adminIndex(final

@@ -71,6 +71,7 @@ $(function() {
 			<a href="">忘记密码</a>
 			</p>
 			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">登录</button>
+
 		</form>
 	</div>
 	

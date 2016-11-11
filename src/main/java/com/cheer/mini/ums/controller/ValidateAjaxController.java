@@ -18,6 +18,7 @@ import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
 
+
 @Controller
 @RequestMapping("/ums/validate")
 public class ValidateAjaxController {
