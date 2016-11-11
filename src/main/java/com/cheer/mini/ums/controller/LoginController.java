@@ -40,7 +40,7 @@ public class LoginController {
 	
 	@RequestMapping("/login")
 	public String toShowIndex(){
-		return "redirect:/pms/product/showIndex";
+		return "redirect:/pms/product/findByHot";
 	}
 
 	@RequestMapping(value = "/validatelogin")
