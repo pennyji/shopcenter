@@ -1,36 +1,4 @@
-<<<<<<< HEAD
-/build/
 
-*.DS_Store
-
-*.idea
-
-*.project
-
-*.[oa]
-
-/.settings/
-
-*/.settings/
-
-*/.metadata/
-
-*.classpath
-
-*~
-
-META-INF/
-
-.name
-
-*target/
-
-*/.idea/
-
-*.iml
-
-*jdbc.properties
-=======
 *.class
 .classpath
 rebel.xml
@@ -63,4 +31,3 @@ target
 
 # Project Logs
 logs/
->>>>>>> tommy
