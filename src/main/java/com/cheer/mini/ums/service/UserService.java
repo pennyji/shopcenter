@@ -17,4 +17,5 @@ public interface UserService {
 
     public int createUser(CustomerUserCreateRequest userParam) throws ServiceException;
 
+   // public User addcommoDity(CustomerUserCreateRequest userParam)throws ServiceException;
 }

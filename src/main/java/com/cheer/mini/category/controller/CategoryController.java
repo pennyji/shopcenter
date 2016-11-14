@@ -1,33 +1,15 @@
 package com.cheer.mini.category.controller;
 
-<<<<<<< HEAD
-import java.util.ArrayList;
+
 import java.util.List;
-import java.util.Map;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-import org.springframework.beans.factory.annotation.Autowired;
-=======
-import java.util.List;
-
->>>>>>> jipei
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-<<<<<<< HEAD
-import cn.itcast.commons.CommonUtils;
+import com.cheer.mini.category.model.Category;
+import com.cheer.mini.category.service.CategoryService;
 
-import com.cheer.mini.category.model.Category;
-import com.cheer.mini.category.service.CategoryService;
-import com.cheer.mini.pms.service.CommodityService;
-=======
-import com.cheer.mini.category.model.Category;
-import com.cheer.mini.category.service.CategoryService;
->>>>>>> jipei
 
 @Controller
 @RequestMapping("pms/category")
