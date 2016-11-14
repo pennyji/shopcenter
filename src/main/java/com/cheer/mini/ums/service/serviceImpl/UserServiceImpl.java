@@ -71,6 +71,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 
+
 	public int createUser(CustomerUserCreateRequest userParam)throws ServiceException{
 
 		if (StringUtil.isEmpty(userParam.getName()))
@@ -102,7 +103,7 @@ public class UserServiceImpl implements UserService {
 		user.setUpdaterFk(user.getId());
 //		this.encryptPassword(user);
 		return userDao.save(user);
+
 	}
-
-
+	
 }
