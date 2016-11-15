@@ -183,7 +183,7 @@
 
 
 
-			<div class="center_title_bar">推荐商品</div>
+			<div class="center_title_bar"><a href="#">推荐商品</a></div>
 			
 			<c:forEach items="${list}" var="product">
 			<div class="prod_box">
@@ -193,7 +193,7 @@
 						<a href="details.html">${product.pname}</a>
 					</div>
 					<div class="product_img">
-						<a href="details.html"><img src="${path }/${product.image}" alt=""
+						<a href="${path }/pms/product/findById?pid=${product.pid}"><img src="${path }/${product.image}" alt=""
 							title="" border="0" height="50"  width="60"/></a>
 					</div>
 					<div class="prod_price">

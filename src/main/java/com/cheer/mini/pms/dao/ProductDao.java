@@ -16,6 +16,10 @@ public interface ProductDao {
 	public List<Product> findByProduct();
 	/*//增加商品
 	public Product addProduct(Product product);*/
+	//查询所有热门商品
+	public List<Product> findByListHot(int hot);
+	//根据id查询单个 的商品
+	public Product findById(String pid);
 	
 	
 }
