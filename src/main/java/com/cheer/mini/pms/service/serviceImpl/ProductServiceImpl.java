@@ -20,6 +20,21 @@ public class ProductServiceImpl implements ProductService{
 		return list;
 	}
 
+	
+	//显示所有最热门商品
+	@Override
+	public List<Product> findByListHot(int hot) {
+		List<Product> list=productDao.findByListHot(hot);
+		return list;
+	}
+
+
+	@Override
+	public Product findById(String pid) {
+		Product product=productDao.findById(pid);
+		return product;
+	}
+
 
 		
 }

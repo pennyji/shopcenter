@@ -20,5 +20,13 @@
 	<select id="findByHot" parameterType="int" resultType="Product">
 		SELECT*FROM pms_product WHERE hot=#{value} LIMIT 3
 	</select>
-
+	
+	
+	<select id="findByListHot" parameterType="int" resultType="Product">
+		SELECT*FROM pms_product WHERE hot=#{value}
+	</select>
+		
+	<select id="findById" parameterType="String" resultType="Product">
+		SELECT*FROM pms_product WHERE pid=#{value}
+	</select>
 </mapper> 

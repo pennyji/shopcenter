@@ -9,5 +9,8 @@ public interface ProductService {
 		//查找热门商品
 	public List<Product> findByHot(int hot);
 
+	public List<Product> findByListHot(int hot);
+
+	public Product findById(String pid);
 	
-}
+	}
