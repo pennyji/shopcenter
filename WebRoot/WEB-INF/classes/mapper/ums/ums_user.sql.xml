@@ -56,27 +56,17 @@
 
 	</insert>
 	
-<<<<<<< HEAD
-
-=======
->>>>>>> 93f6d7436eeba6e05f9dfe3e08e95701bc619f6e
 	<select id="queryAll" parameterType="String" resultType="User">
 		SELECT
 		*
 		FROM ums_user
 	</select>
-<<<<<<< HEAD
-=======
 
->>>>>>> 93f6d7436eeba6e05f9dfe3e08e95701bc619f6e
 	<update id="update" parameterType="String">
 		UPDATE
 		ums_user
 		SET name =#{name},nickname =#{nickname}
 		WHERE account =#{account}
 	</update>
-<<<<<<< HEAD
-=======
 
->>>>>>> 93f6d7436eeba6e05f9dfe3e08e95701bc619f6e
 </mapper> 
