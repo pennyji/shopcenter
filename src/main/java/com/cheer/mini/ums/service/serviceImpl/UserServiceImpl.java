@@ -44,10 +44,11 @@ public class UserServiceImpl implements UserService {
 	 * 验证登录密码
 	 */
 	public boolean validatePassword(User user, String password) {
-		String newPassword = new SimpleHash(algorithmName, password,
-				ByteSource.Util.bytes(user.getCredentialsSalt()),
-				hashIterations).toHex();
-		if (newPassword.equals(user.getPassword()))
+//		String newPassword = new SimpleHash(algorithmName, password,
+//				ByteSource.Util.bytes(user.getCredentialsSalt()),
+//				hashIterations).toHex();
+//		if (newPassword.equals(user.getPassword()))
+		if (password.equals(user.getPassword()))
 			return true;
 		return false;
 	}
@@ -100,7 +101,7 @@ public class UserServiceImpl implements UserService {
 		user.setAccountTypeFk(userParam.getAccountTypeFk());
 		user.setCreatorFk(user.getId());
 		user.setUpdaterFk(user.getId());
-		this.encryptPassword(user);
+//		this.encryptPassword(user);
 		return userDao.save(user);
 
 	}
