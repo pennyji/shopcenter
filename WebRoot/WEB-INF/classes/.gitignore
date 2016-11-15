@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-/shoppingcar
 /com
-=======
-/com
+/config
+/log4j.properties
 /mapper
->>>>>>> 93f6d7436eeba6e05f9dfe3e08e95701bc619f6e
