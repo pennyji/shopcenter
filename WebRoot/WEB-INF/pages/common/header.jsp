@@ -2,24 +2,6 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
-
-  <div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container-fluid">
-      <div class="navbar-header">
-        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
-          <span class="sr-only">Toggle navigation</span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span> 
-          <span class="icon-bar"></span>
-        </button>
-        <a class="navbar-brand">管理后台</a>
-      </div>
-      <div class="navbar-right">
-	      <ul>
-	        <li style="float:left;" class="dropdown"><span class="navbar-brand" data-toggle="dropdown">您好, ${sessionScope.LOGIN_USER.nickname } !</span></li>
-	        <li style="float:left;"><a class="navbar-brand" href="${path }/ums/user/logout" onclick="javascript:sessionStorage.clear();">退出登录</a></li>
-	      </ul>
-      </div>
 	
 		<div class="top_bar">
 			<div class="welcome">
@@ -52,16 +34,12 @@
 				<div class="oferta">
 
 					<div class="oferta_content">
-						<img src="/shopcenter/images/laptop.png" width="94" height="92" border="0"
-							class="oferta_img" />
+						<img src="/shopcenter/${LATEST_PRODUCT.image}" width="94" height="92" border="0" class="oferta_img" />
 
 						<div class="oferta_details">
-							<div class="oferta_title">Samsung GX 2004 LM</div>
-							<div class="oferta_text">Lorem ipsum dolor sit amet,
-								consectetur adipisicing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-								nostrud exercitation ullamco</div>
-							<a href="details.html" class="details">details</a>
+							<div class="oferta_title">${LATEST_PRODUCT.pname}</div>
+							<div class="oferta_text">${LATEST_PRODUCT.detail}</div>
+							<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}" class="details">详情</a>
 						</div>
 					</div>
 					<div class="oferta_pagination">

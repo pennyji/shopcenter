@@ -52,4 +52,8 @@ public class Constants {
         
     }
     public static final int Hot = 1;
+    
+    public static final String LATEST_PRODUCT="LATEST_PRODUCT";
+    
+    public static final String PRODUCTS = "PRODUCTS";
 }

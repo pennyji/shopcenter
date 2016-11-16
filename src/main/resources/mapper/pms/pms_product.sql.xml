@@ -20,5 +20,17 @@
 	<select id="findByHot" parameterType="int" resultType="Product">
 		SELECT*FROM pms_product WHERE hot=#{value} LIMIT 3
 	</select>
+	
+	<select id="findLatestProduct" resultType="Product">
+		SELECT * from pms_product p where date=(SELECT MAX(date) from pms_product)
+	</select>
+	
+	<select id="findAll" resultType="Product" parameterType="Map">
+		select * from pms_product limit #{startRow}, #{endRow};
+	</select>
+	
+	<select id="findById" parameterType="String" resultType="Product">
+		SELECT * from pms_product where pid= #{productId}
+	</select>
 
 </mapper> 

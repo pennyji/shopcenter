@@ -40,20 +40,5 @@
 	</div>
 	<!-- end of menu tab -->
 
-<div class="col-xs-6 col-sm-2 sidebar-offcanvas" id="sidebar" role="navigation">
-	<div class="list-group">
-		<a href="#" class="list-group-item active">商品管理</a>
-		<a href="#" class="list-group-item">商品发布</a>
-		<a href="#" class="list-group-item">商品列表</a>
-		
-		<a href="#" class="list-group-item active">订单管理</a>
-		<a href="#" class="list-group-item">订单列表</a>
-		<a href="#" class="list-group-item">订单审核</a>
-		
-		<a href="#" class="list-group-item active">用户管理</a>
-		<a href="#" class="list-group-item" id="user_register" >用户注册</a>
-		<a href="#" class="list-group-item" id="user_update">修改个人信息</a>
-		<a href="#" class="list-group-item" id="user_query">查询全部用户</a>
-	</div>
-</div><!--/.sidebar-offcanvas-->
+
 

@@ -16,10 +16,13 @@ public class LoginInterceptor implements HandlerInterceptor {
         
         if(request.getSession().getAttribute(Constants.CURRENT_USER)==null)
         {
-            request.getRequestDispatcher("/ums/user/login").forward(request, response);
+            request.getRequestDispatcher("/ums/user/showIndex").forward(request, response);
             return false;
+        }else{
+        	request.getRequestDispatcher("/ums/user/showIndex").forward(request, response);
+        	return true;
         }
-        return true;
+        
     }
 
   

@@ -1,6 +1,11 @@
 package com.cheer.mini.ums.controller;
 
+
+import java.util.HashMap;
 import java.util.List;
+
+
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -12,7 +17,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
 
@@ -20,7 +24,8 @@ import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
-import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
+import com.cheer.mini.pms.model.Product;
+import com.cheer.mini.pms.service.ProductService;
 import com.cheer.mini.ums.dto.request.LoginRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
@@ -30,7 +35,16 @@ import com.cheer.mini.ums.service.UserService;
 public class LoginController {
 	@Autowired
 	private UserService userService;
+	@Autowired
+	private ProductService productService;
 
+	
+	@RequestMapping("/login")
+	public String toShowIndex(){
+		return "redirect:/pms/product/findByHot";
+	}
+	
+	
 	@RequestMapping("/showLogin")
 	public ModelAndView login(final HttpServletRequest request,
 			final HttpServletResponse response) {
@@ -38,37 +52,23 @@ public class LoginController {
 		return mv;
 	}
 	
-	@RequestMapping("/login")
-	public String toShowIndex(){
-		return "redirect:/pms/product/findByHot";
-	}
+	
 
 	@RequestMapping(value = "/validatelogin")
-	public ResponseEntity<ResultEntity> validateLogin(
-			final HttpServletRequest request,
-			final HttpServletResponse response,
-			@RequestBody LoginRequest loginRequest, UriComponentsBuilder builder)
+	public ResponseEntity<ResultEntity> validateLogin(final HttpServletRequest request,final HttpServletResponse response,@RequestBody LoginRequest loginRequest, UriComponentsBuilder builder)
 			throws ServiceException, Exception {
 		ResultEntity result = null;
-
-		User user = userService.adminLogin(loginRequest.getAccount(),
-				loginRequest.getPassword());
-
-		request.getSession().setAttribute(Constants.CURRENT_USER, user);
-
-		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,
-				"登录成功", user);
-
+		User user = userService.adminLogin(loginRequest.getAccount(),loginRequest.getPassword());
+		request.getSession().setAttribute(Constants.CURRENT_USER, user);	
+		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,"登录成功", user);
 		HttpHeaders headers = new HttpHeaders();
 		headers.setLocation(builder.path("/ums/user/validatelogin")
 				.buildAndExpand().toUri());
-		return new ResponseEntity<ResultEntity>(result, headers,
-				HttpStatus.CREATED);
+		return new ResponseEntity<ResultEntity>(result, headers,HttpStatus.CREATED);
 	}
 
 	@RequestMapping("/logout")
-	public ModelAndView logout(final HttpServletRequest request,
-			final HttpServletResponse response) {
+	public ModelAndView logout(final HttpServletRequest request,final HttpServletResponse response) {
 		ModelAndView mv = new ModelAndView("ums/login");
 		request.getSession().removeAttribute(Constants.CURRENT_USER);
 		return mv;
@@ -92,21 +92,24 @@ public class LoginController {
 	}
 
 
-	/*
-	 * @RequestMapping("/index") public ModelAndView adminIndex(final
-	 * HttpServletRequest request,final HttpServletResponse
-	 * response,@RequestBody LoginRequest loginRequest) {
-	 * System.out.println("adminIndex()..."); ModelAndView modelAndView = new
-	 * ModelAndView(); User user =
-	 * userService.adminLogin(loginRequest.getAccount(),
-	 * loginRequest.getPassword()); if(user != null){ if
-	 * (user.getAccountTypeFk() == Constants.AccountType.ACCOUNT_TYPE_CUSTOMER)
-	 * { System.out.println("1"); modelAndView = new
-	 * ModelAndView("ums/customerIndex"); } if (user.getAccountTypeFk() ==
-	 * Constants.AccountType.ACCOUNT_TYPE_ADMIN) { System.out.println("2");
-	 * modelAndView = new ModelAndView("ums/adminIndex"); } }
-	 * 
-	 * return modelAndView; }
-	 */
+	@RequestMapping("/showIndex")
+	public ModelAndView showIndex(final HttpServletRequest request,final HttpServletResponse response){
+		Map<String,Integer> params = new HashMap<String,Integer>();
+		params.put("startRow", 0);
+		params.put("endRow", 5);
+		Product product = productService.findLatestProduct();
+		List<Product> products = productService.findAll(params);
+		List<Product> list=productService.findByHot(Constants.Hot);
+		ModelAndView mv = new ModelAndView();
+		mv.addObject("list", list);
+		mv.addObject(Constants.PRODUCTS, products);
+		mv.addObject(Constants.LATEST_PRODUCT, product);
+		mv.setViewName("/ums/customerIndex");
+//		request.getSession().setAttribute(Constants.PRODUCTS, products);
+//		request.getSession().setAttribute(Constants.LATEST_PRODUCT, product);
+		
+		return mv;
+		
+	}
 	
 }

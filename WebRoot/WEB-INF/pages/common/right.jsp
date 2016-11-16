@@ -22,14 +22,14 @@
 	<div class="title_box">新商品</div>
 	<div class="border_box">
 		<div class="product_title">
-			<a href="details.html">Motorola 156 MX-VL</a>
+			<a href="details.html">${LATEST_PRODUCT.pname}</a>
 		</div>
 		<div class="product_img">
-			<a href="details.html"><img src="/shopcenter/images/p2.gif" alt="" title=""
+			<a href="details.html"><img src="/shopcenter/${LATEST_PRODUCT.image}" alt="" title=""
 				border="0" /></a>
 		</div>
 		<div class="prod_price">
-			<span class="reduce">350$</span> <span class="price">270$</span>
+			<span class="price">${LATEST_PRODUCT.price}</span>
 		</div>
 	</div>
 
