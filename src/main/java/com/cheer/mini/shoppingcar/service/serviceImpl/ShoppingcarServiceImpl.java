@@ -1,41 +1,27 @@
 package com.cheer.mini.shoppingcar.service.serviceImpl;
 
+import java.util.Date;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
-import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.shoppingcar.dao.ShoppingcarDao;
 import com.cheer.mini.shoppingcar.model.Shoppingcar;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
-import com.cheer.mini.ums.model.User;
 
 @Service
 public class ShoppingcarServiceImpl implements ShoppingcarService{
 
-	
+	@Autowired
 	private ShoppingcarDao shoppingcardao;
-	
-	public Shoppingcar getbyorderlist(String orderlistid){
+
+	@Override
+	public void addAddCommodity(String id,String pid,int number) {
+		Shoppingcar shoppingcar = new Shoppingcar();
+		shoppingcar.setPid(pid);
+		shoppingcar.setId(id);
+		shoppingcar.setNumber(number);
+		shoppingcar.setAddtime(new Date());
 		
-		Shoppingcar orderlist = shoppingcardao.getbyorderlist(orderlistid);
-		return orderlist;
-		
-		
+		shoppingcardao.saveAddCommodity(shoppingcar);
 	}
-	
-	
-	public void addAddCommodity(String id,String pid,int number){
-		
-		Shoppingcar orderlist = this.getbyorderlist();
-		if(orderlist.getNumber()<=0){throw new ServiceException("数量不能小于0");}
-		
-		orderlist = new Shoppingcar();
-		
-		
-		
-		
-		
-	}
-	
-	
-	
+
 }

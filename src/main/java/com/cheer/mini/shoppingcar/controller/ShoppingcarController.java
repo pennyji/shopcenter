@@ -1,46 +1,56 @@
 package com.cheer.mini.shoppingcar.controller;
 
+import java.util.List;
 import javax.servlet.http.HttpServletRequest;
-
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
-
-import com.cheer.mini.base.exception.ServiceException;
-import com.cheer.mini.base.model.ResultEntity;
-import com.cheer.mini.base.model.ResultEntityHashMapImpl;
-import com.cheer.mini.shoppingcar.dto.request.AddOrderlistRequest;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.servlet.ModelAndView;
+import com.cheer.mini.base.Constants;
+import com.cheer.mini.shoppingcar.dao.ShoppingcarDao;
+import com.cheer.mini.shoppingcar.model.MyShoppingCart;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
+import com.cheer.mini.ums.model.User;
 
 @Controller
 @RequestMapping("/ums/Shoppingcar")
 public class ShoppingcarController {
 
+	@Autowired
 	private ShoppingcarService shoppingcarservice;
 
-	@RequestMapping(value = "/addproduct")
-	public ResponseEntity<ResultEntity> addproduct(
-			final HttpServletRequest request,
-			@RequestBody AddOrderlistRequest addOrderlist)
-			throws ServiceException, Exception {
-		System.out.println("addproduct");
-		ResultEntity result = null;
-		shoppingcarservice.addAddCommodity(addOrderlist.getId(),
-				addOrderlist.getPid(), addOrderlist.getNumber());
+	@RequestMapping("/addToCart")
+	public ModelAndView addToCart(@RequestParam(value = "pid") String pid,
+			HttpServletRequest request) {
+		
+		System.out.println("addToCart()");
+		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
+		int quantity = Integer.parseInt(request.getParameter("count"));
+		System.out.println(quantity);
+		ModelAndView modelAndView = new ModelAndView();
+		if (user == null) {
+			modelAndView.setViewName("/ums/login");
+		}else {
+			shoppingcarservice.addAddCommodity(user.getId(), pid, quantity);
+			modelAndView.setViewName("/ums/addsuccess");
+		}
+		return modelAndView;
+		
+	}
 
-		System.out.println("dddd");
+	@Autowired
+	private ShoppingcarDao shoppingcarDao;
 
-		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,
-				"成功添加至购物车");
-
-		System.out.println(result);
-
-		HttpHeaders headers = new HttpHeaders();
-		return new ResponseEntity<ResultEntity>(result, headers,
-				HttpStatus.CREATED);
+	@RequestMapping("/showShoppingCart")
+	public ModelAndView showShoppingCart(HttpServletRequest request) {
+		String id = request.getParameter("id");
+		System.out.println(id);
+		List<MyShoppingCart> list = shoppingcarDao.queryByUserId(id);
+		ModelAndView modelAndView = new ModelAndView();
+		modelAndView.addObject("list", list);
+		modelAndView.setViewName("/ums/shoppingcar");
+		return modelAndView;
 	}
 
 }
