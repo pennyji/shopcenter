@@ -10,7 +10,7 @@ public interface ShoppingcarDao {
 	
 	public Product findbyPms(String pid);
 	
-	public void saveAddCommodity(Product product);
+	public void saveAddCommodity(Shoppingcar shoppingcar);
 	
 	public void updateAddCommodity(Product product);
 	

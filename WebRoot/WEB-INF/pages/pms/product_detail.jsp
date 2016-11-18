@@ -46,7 +46,7 @@
                          </div>
                          <div class="prod_price_big">价格：<span class="price">${product.price}</span></div>
                          
-                         <a href="#" class="addtocart">添加到购物车</a>
+                         <a href="${path}/ums/Shoppingcar/addToCart" class="addtocart">添加到购物车</a>
                          <a href="#" class="compare">进行比较</a>
                      </div>                        
             </div>

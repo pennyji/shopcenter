@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace必须指向dao接口 -->
+<mapper namespace="com.cheer.mini.shoppingcar.dao.ShoppingcarDao">
+
+
+<insert id="saveAddCommodity" parameterType="Shoppingcar">
+
+		INSERT INTO orderlist
+		(
+		orderlistid,
+		pid,
+		number,
+		addtime,
+		orderid,
+		id,
+		itemstatus
+		)
+		VALUES
+		(
+		#{orderlistid},
+		#{pid},
+		#{number},
+		#{addtime},
+		#{orderid},
+		#{id},
+		#{itemstatus}
+		
+		)
+</insert>
+</mapper>
