@@ -2,45 +2,35 @@ package com.cheer.mini.shoppingcar.controller;
 
 import javax.servlet.http.HttpServletRequest;
 
-import org.springframework.http.HttpHeaders;
-import org.springframework.http.HttpStatus;
-import org.springframework.http.ResponseEntity;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.ModelAndView;
 
-import com.cheer.mini.base.exception.ServiceException;
-import com.cheer.mini.base.model.ResultEntity;
-import com.cheer.mini.base.model.ResultEntityHashMapImpl;
+import com.cheer.mini.shoppingcar.dao.ShoppingcarDao;
 import com.cheer.mini.shoppingcar.dto.request.AddOrderlistRequest;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
 
 @Controller
 @RequestMapping("/ums/Shoppingcar")
 public class ShoppingcarController {
-
-	private ShoppingcarService shoppingcarservice;
-
-	@RequestMapping(value = "/addproduct")
-	public ResponseEntity<ResultEntity> addproduct(
-			final HttpServletRequest request,
-			@RequestBody AddOrderlistRequest addOrderlist)
-			throws ServiceException, Exception {
-		System.out.println("addproduct");
-		ResultEntity result = null;
-		shoppingcarservice.addAddCommodity(addOrderlist.getId(),
-				addOrderlist.getPid(), addOrderlist.getNumber());
-
-		System.out.println("dddd");
-
-		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,
-				"成功添加至购物车");
-
-		System.out.println(result);
-
-		HttpHeaders headers = new HttpHeaders();
-		return new ResponseEntity<ResultEntity>(result, headers,
-				HttpStatus.CREATED);
+	
+//	private ShoppingcarDao shoppingcardao;
+	@Autowired
+	private ShoppingcarService shoppingcarService;
+	
+	@RequestMapping(value = "/addToCart")
+	public ModelAndView addToCart(HttpServletRequest request)
+	{
+		AddOrderlistRequest  addOrderlistrequest =new AddOrderlistRequest();
+		String pid = request.getParameter("pid");//从前端页面上获取商品的pid放到“pid”中
+		String id = request.getParameter("id");//从前端页面上获取用户id放到“id”中
+		shoppingcarService.addAddCommodity(id, pid, 1);//调用shoppingcarService中的addAddCommodity方法将
+		ModelAndView mv =new ModelAndView();
+		mv.addObject("addOrderlistrequest",addOrderlistrequest);
+		mv.setViewName("/ums/shoppingcar");
+		
+		return mv;
 	}
 
 }

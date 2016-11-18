@@ -1,17 +1,16 @@
 package com.cheer.mini.shoppingcar.service.serviceImpl;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.shoppingcar.dao.ShoppingcarDao;
 import com.cheer.mini.shoppingcar.model.Shoppingcar;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
-import com.cheer.mini.ums.model.User;
 
 @Service
 public class ShoppingcarServiceImpl implements ShoppingcarService{
 
-	
+	@Autowired
 	private ShoppingcarDao shoppingcardao;
 	
 	public Shoppingcar getbyorderlist(String orderlistid){
@@ -25,15 +24,12 @@ public class ShoppingcarServiceImpl implements ShoppingcarService{
 	
 	public void addAddCommodity(String id,String pid,int number){
 		
-		Shoppingcar orderlist = this.getbyorderlist();
-		if(orderlist.getNumber()<=0){throw new ServiceException("数量不能小于0");}
-		
-		orderlist = new Shoppingcar();
-		
-		
-		
-		
-		
+		Shoppingcar sc = new Shoppingcar();
+		sc.setId(id);//调用Shoppingcar中的属性id
+		sc.setPid(pid);//调用Shoppingcar中的属性pid
+		sc.setNumber(number);//调用Shoppingcar中的属性number
+		shoppingcardao.saveAddCommodity(sc);//调用shoppingcardao中的saveAddCommodity接口通过shoppingcar.sql.xml语句将数据保存到数据库
+	
 	}
 	
 	
