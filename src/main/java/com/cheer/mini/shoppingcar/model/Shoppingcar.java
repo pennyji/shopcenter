@@ -3,24 +3,22 @@ package com.cheer.mini.shoppingcar.model;
 import java.util.Date;
 
 import com.cheer.mini.base.util.StringUtil;
-import com.cheer.mini.pms.model.Product;
-import com.cheer.mini.ums.model.User;
 
 public class Shoppingcar {
 
 	private String orderlistid = StringUtil.createUUID();
+
+	private String pid;
 	
 	private int number;
 	
-	private String pid ;
+	private int itemstatus;
 	
-    private String id ;
-    
-    private int itemstatus;
-    
-    private String orderid = null;
-    
-    private Date addtime;
+	private Date addtime;
+	
+	private String orderid = StringUtil.createUUID();
+	
+	private String id;
 
 	public String getOrderlistid() {
 		return orderlistid;
@@ -28,14 +26,6 @@ public class Shoppingcar {
 
 	public void setOrderlistid(String orderlistid) {
 		this.orderlistid = orderlistid;
-	}
-
-	public int getNumber() {
-		return number;
-	}
-
-	public void setNumber(int number) {
-		this.number = number;
 	}
 
 	public String getPid() {
@@ -46,12 +36,12 @@ public class Shoppingcar {
 		this.pid = pid;
 	}
 
-	public String getId() {
-		return id;
+	public int getNumber() {
+		return number;
 	}
 
-	public void setId(String id) {
-		this.id = id;
+	public void setNumber(int number) {
+		this.number = number;
 	}
 
 	public int getItemstatus() {
@@ -62,6 +52,14 @@ public class Shoppingcar {
 		this.itemstatus = itemstatus;
 	}
 
+	public Date getAddtime() {
+		return addtime;
+	}
+
+	public void setAddtime(Date addtime) {
+		this.addtime = addtime;
+	}
+
 	public String getOrderid() {
 		return orderid;
 	}
@@ -70,14 +68,13 @@ public class Shoppingcar {
 		this.orderid = orderid;
 	}
 
-	public Date getAddtime() {
-		return addtime;
+	public String getId() {
+		return id;
 	}
 
-	public void setAddtime(Date addtime) {
-		this.addtime = addtime;
+	public void setId(String id) {
+		this.id = id;
 	}
-    
-    
+
 	
 }

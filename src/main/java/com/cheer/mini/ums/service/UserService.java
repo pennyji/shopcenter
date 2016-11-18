@@ -1,7 +1,5 @@
 package com.cheer.mini.ums.service;
 
-import java.util.List;
-
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
@@ -18,5 +16,4 @@ public interface UserService {
 
     public int createUser(CustomerUserCreateRequest userParam) throws ServiceException;
 
-   // public User addcommoDity(CustomerUserCreateRequest userParam)throws ServiceException;
 }

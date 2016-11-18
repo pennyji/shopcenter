@@ -1,14 +1,11 @@
 package com.cheer.mini.ums.service.serviceImpl;
 
-import java.util.List;
-
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-
 import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.util.StringUtil;
@@ -44,15 +41,14 @@ public class UserServiceImpl implements UserService {
 	 * 验证登录密码
 	 */
 	public boolean validatePassword(User user, String password) {
-//		String newPassword = new SimpleHash(algorithmName, password,
-//				ByteSource.Util.bytes(user.getCredentialsSalt()),
-//				hashIterations).toHex();
-//		if (newPassword.equals(user.getPassword()))
-		if (password.equals(user.getPassword()))
+		String newPassword = new SimpleHash(algorithmName, password,
+				ByteSource.Util.bytes(user.getCredentialsSalt()),
+				hashIterations).toHex();
+		if (newPassword.equals(user.getPassword()))
 			return true;
 		return false;
 	}
-
+	
 	public User getByAccount(String account) {
 		User user = userDao.getByAccount(account);
 		return user;
@@ -62,15 +58,11 @@ public class UserServiceImpl implements UserService {
 			throws ServiceException {
 		User user = this.getByAccount(account);
 		if (user == null)
-			throw new ServiceException("用户名或密码错误");
-//		if (user.getAccountTypeFk() != Constants.AccountType.ACCOUNT_TYPE_ADMIN)
-//			throw new ServiceException("用户名或密码错误");
+			throw new ServiceException("用户名不存在");
 		if (!this.validatePassword(user, password))
-			throw new ServiceException("用户名或密码错误");
+			throw new ServiceException("密码错误");
 		return user;
 	}
-
-
 
 	public int createUser(CustomerUserCreateRequest userParam)throws ServiceException{
 
@@ -101,7 +93,7 @@ public class UserServiceImpl implements UserService {
 		user.setAccountTypeFk(userParam.getAccountTypeFk());
 		user.setCreatorFk(user.getId());
 		user.setUpdaterFk(user.getId());
-//		this.encryptPassword(user);
+		this.encryptPassword(user);
 		return userDao.save(user);
 
 	}

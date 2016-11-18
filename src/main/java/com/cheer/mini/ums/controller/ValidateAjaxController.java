@@ -16,24 +16,12 @@ import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
 
-
 @Controller
 @RequestMapping("/ums/validate")
 public class ValidateAjaxController {
 
 	@Autowired
 	private UserService userService;
-
-	/*@RequestMapping("/validateAjax")
-	public ModelAndView validateAjax(@RequestBody LoginRequest loginRequest,
-			HttpServletRequest request, HttpServletResponse response) {
-
-		ModelAndView modelAndView = new ModelAndView();
-		String account = loginRequest.getAccount();
-
-		userService.getByAccount(account);
-		return modelAndView;
-	}*/
 
 	@RequestMapping(value = "/validateAjax")
 	public ResponseEntity<ResultEntity> validateRegister(
@@ -56,5 +44,6 @@ public class ValidateAjaxController {
 		return new ResponseEntity<ResultEntity>(result, headers,
 				HttpStatus.CREATED);
 	}
+	
 }
 

@@ -1,5 +1,8 @@
 package com.cheer.mini.shoppingcar.service.serviceImpl;
 
+
+import java.util.Date;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -12,26 +15,23 @@ public class ShoppingcarServiceImpl implements ShoppingcarService{
 
 	@Autowired
 	private ShoppingcarDao shoppingcardao;
-	
-	public Shoppingcar getbyorderlist(String orderlistid){
+
+	@Override
+	public void addAddCommodity(String id,String pid,int number) {
+		Shoppingcar shoppingcar = new Shoppingcar();
+		shoppingcar.setPid(pid);
+		shoppingcar.setId(id);
+		shoppingcar.setNumber(number);
+		shoppingcar.setAddtime(new Date());
 		
-		Shoppingcar orderlist = shoppingcardao.getbyorderlist(orderlistid);
-		return orderlist;
-		
-		
+		shoppingcardao.saveAddCommodity(shoppingcar);
+
 	}
-	
-	
-	public void addAddCommodity(String id,String pid,int number){
-		
-		Shoppingcar sc = new Shoppingcar();
-		sc.setId(id);//调用Shoppingcar中的属性id
-		sc.setPid(pid);//调用Shoppingcar中的属性pid
-		sc.setNumber(number);//调用Shoppingcar中的属性number
-		shoppingcardao.saveAddCommodity(sc);//调用shoppingcardao中的saveAddCommodity接口通过shoppingcar.sql.xml语句将数据保存到数据库
-	
+
+	@Override
+	public Shoppingcar getbyorderlist(String orderlistid) {
+		// TODO Auto-generated method stub
+		return null;
 	}
-	
-	
-	
+
 }
