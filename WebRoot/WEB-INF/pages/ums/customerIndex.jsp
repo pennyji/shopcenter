@@ -19,12 +19,19 @@
 		<jsp:include page="../common/menu.jsp" />
 		<jsp:include page="../common/left.jsp" />
 		<div class="center_content">
+<<<<<<< HEAD
 			<div class="center_title_bar">最新商品</div>
 			<c:forEach items="${PRODUCTS}" var="product">
+=======
+		<div class="center_title_bar"> <a href="${path }/pms/product/findByAll?page=1" >点击显示所有商品</a></div>
+			<div class="">最新商品</div>
+			<c:forEach items="${newlist }" var="list">
+>>>>>>> master
 			<div class="prod_box">
 				<div class="top_prod_box"></div>
 				<div class="center_prod_box">
 					<div class="product_title">
+<<<<<<< HEAD
 						<input type="hidden" name="productId" id="productId"/>
 						<a href="details.html">${product.pname}</a>
 					</div>
@@ -34,6 +41,16 @@
 					</div>
 					<div class="prod_price">
 						<span class="price">${product.price}</span>
+=======
+						<a href="details.html">${list.pname}</a>
+					</div>
+					<div class="product_img">
+						<a href="${path }/pms/product/findById?pid=${list.pid}"><img src="${path }/${list.image}" alt=""
+							title="" border="0" width="80" height="120"/></a>
+					</div>
+					<div class="prod_price">
+						 <span class="price">${list.price}</span>
+>>>>>>> master
 					</div>
 				</div>
 				<div class="bottom_prod_box"></div>
@@ -44,11 +61,25 @@
 						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
 					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
 						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+<<<<<<< HEAD
 						class="left_bt" /></a> <a href="${path}/pms/product/findById?productId=${product.pid}" class="prod_details">详情</a>
 				</div>
 			</div>
 			</c:forEach>
 			<div class="center_title_bar">推荐商品</div>
+=======
+						class="left_bt" /></a> <a href="details.html" class="prod_details">详情</a>
+				</div>
+			</div>
+			</c:forEach>
+
+
+			
+
+
+
+			<div class="center_title_bar"><a href="${path }/pms/product/findByListHot?page=1">推荐商品</a></div>
+>>>>>>> master
 			
 			<c:forEach items="${list}" var="product">
 			<div class="prod_box">
@@ -58,7 +89,8 @@
 						<a href="details.html">${product.pname}</a>
 					</div>
 					<div class="product_img">
-						<a href="details.html"><img src="${path }/${product.image}" alt=""
+						<a href="${path }/pms/product/findById?pid=${product.pid}">
+						<img src="${path }/${product.image}" alt=""
 							title="" border="0" height="50"  width="60"/></a>
 					</div>
 					<div class="prod_price">

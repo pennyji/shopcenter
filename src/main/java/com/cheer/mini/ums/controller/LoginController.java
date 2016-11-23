@@ -33,6 +33,7 @@ import com.cheer.mini.ums.service.UserService;
 @Controller
 @RequestMapping("/ums/user")
 public class LoginController {
+	
 	@Autowired
 	private UserService userService;
 	@Autowired
@@ -90,6 +91,7 @@ public class LoginController {
 		ModelAndView mv = new ModelAndView("ums/adminIndex");
 		return mv;
 	}
+
 
 
 	@RequestMapping("/showIndex")

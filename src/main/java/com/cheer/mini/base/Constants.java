@@ -51,9 +51,27 @@ public class Constants {
         public static final int NoHot = 0;
         
     }
+    
     public static final int Hot = 1;
     
+
     public static final String LATEST_PRODUCT="LATEST_PRODUCT";
     
     public static final String PRODUCTS = "PRODUCTS";
+
+    public class ItemStatus{
+    	
+    	/**
+    	 * 未付款
+    	 */
+    	public static final int ITEM_STATUS_NOTPAY = 0;
+    	
+    	/**
+    	 * 已付款
+    	 */
+    	public static final int ITEM_STATUS_PAY = 1;
+    	
+    }
+    
+
 }
