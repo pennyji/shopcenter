@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<!-- namespace必须指向dao接口 -->
+<mapper namespace="com.cheer.mini.shoppingcar.dao.ShoppingcarDao">
+
+	<insert id="saveAddCommodity" parameterType="Shoppingcar">
+		INSERT INTO scms_shoppingcart
+		(
+		orderlistid,
+		pid,
+		number,
+		itemstatus,
+		addtime,
+		orderid,
+		id
+		)
+		VALUES
+		(
+		#{orderlistid},
+		#{pid},
+		#{number},
+		#{itemstatus},
+		#{addtime},
+		#{orderid},
+		#{id}
+		)
+	</insert>
+	
+	<select id="queryByUserId" resultType="MyShoppingCart">
+		SELECT a.pname,a.price,a.image,b.number 
+		FROM pms_product a 
+		LEFT JOIN scms_shoppingcart b 
+		ON a.pid=b.pid 
+		WHERE b.id=#{id}
+	</select>
+	
+	<!-- <select id="queryByUserId" resultType="MyShoppingCart">
+		SELECT p.* 
+		FROM pms_product p 
+		LEFT JOIN scms_shoppingcart sc 
+		ON p.pid=sc.pid 
+		LEFT JOIN ums_user u 
+		ON sc.id=u.id 
+		WHERE u.id=#{id}
+	</select> -->
+
+</mapper> 
