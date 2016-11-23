@@ -24,6 +24,17 @@ public class ValidateAjaxController {
 	@Autowired
 	private UserService userService;
 
+	/*@RequestMapping("/validateAjax")
+	public ModelAndView validateAjax(@RequestBody LoginRequest loginRequest,
+			HttpServletRequest request, HttpServletResponse response) {
+
+		ModelAndView modelAndView = new ModelAndView();
+		String account = loginRequest.getAccount();
+
+		userService.getByAccount(account);
+		return modelAndView;
+	}*/
+
 	@RequestMapping(value = "/validateAjax")
 	public ResponseEntity<ResultEntity> validateRegister(
 			final HttpServletRequest request,
@@ -45,6 +56,6 @@ public class ValidateAjaxController {
 		return new ResponseEntity<ResultEntity>(result, headers,
 				HttpStatus.CREATED);
 	}
-	
 }
+
 

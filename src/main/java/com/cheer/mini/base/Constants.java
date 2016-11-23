@@ -37,35 +37,5 @@ public class Constants {
      * 中断异常提示
      */
     public final static String INTERRUPT_EXCEPTION_ERRO_MSG = "Internal Server Error!";
-   
-    
-    public class ProductHot{
-        /**
-         * r热门商品
-         */
-        public static final int Hot = 1;
-        
-        /**
-         * 普通商品
-         */
-        public static final int NoHot = 0;
-        
-    }
-    
-    public static final int Hot = 1;
-    
-    public class ItemStatus{
-    	
-    	/**
-    	 * 未付款
-    	 */
-    	public static final int ITEM_STATUS_NOTPAY = 0;
-    	
-    	/**
-    	 * 已付款
-    	 */
-    	public static final int ITEM_STATUS_PAY = 1;
-    	
-    }
     
 }

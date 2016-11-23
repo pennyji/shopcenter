@@ -1,16 +1,20 @@
 package com.cheer.mini.ums.service.serviceImpl;
 
+import java.util.List;
+
 import org.apache.shiro.crypto.RandomNumberGenerator;
 import org.apache.shiro.crypto.SecureRandomNumberGenerator;
 import org.apache.shiro.crypto.hash.SimpleHash;
 import org.apache.shiro.util.ByteSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+
 import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.util.StringUtil;
 import com.cheer.mini.ums.dao.UserDao;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
+import com.cheer.mini.ums.model.Cart;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
 
@@ -48,7 +52,7 @@ public class UserServiceImpl implements UserService {
 			return true;
 		return false;
 	}
-	
+
 	public User getByAccount(String account) {
 		User user = userDao.getByAccount(account);
 		return user;
@@ -58,11 +62,14 @@ public class UserServiceImpl implements UserService {
 			throws ServiceException {
 		User user = this.getByAccount(account);
 		if (user == null)
-			throw new ServiceException("用户名不存在");
+			throw new ServiceException("用户名或密码错误");
+//		if (user.getAccountTypeFk() != Constants.AccountType.ACCOUNT_TYPE_ADMIN)
+//			throw new ServiceException("用户名或密码错误");
 		if (!this.validatePassword(user, password))
-			throw new ServiceException("密码错误");
+			throw new ServiceException("用户名或密码错误");
 		return user;
 	}
+
 
 	public int createUser(CustomerUserCreateRequest userParam)throws ServiceException{
 
@@ -95,7 +102,13 @@ public class UserServiceImpl implements UserService {
 		user.setUpdaterFk(user.getId());
 		this.encryptPassword(user);
 		return userDao.save(user);
-
 	}
-	
+
+	@Override
+	public Cart getCartMsg(String userid) {
+		Cart cart=userDao.getCartMsg(userid);
+		return cart;
+	}
+
+
 }

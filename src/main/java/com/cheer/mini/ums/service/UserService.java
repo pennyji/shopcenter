@@ -1,7 +1,10 @@
 package com.cheer.mini.ums.service;
 
+import java.util.List;
+
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.ums.dto.request.CustomerUserCreateRequest;
+import com.cheer.mini.ums.model.Cart;
 import com.cheer.mini.ums.model.User;
 
 /**
@@ -9,11 +12,12 @@ import com.cheer.mini.ums.model.User;
  * @author Lucy
  */
 public interface UserService {
-
     public User getByAccount(String account);
 
     public User adminLogin(String account, String password)throws ServiceException;
 
     public int createUser(CustomerUserCreateRequest userParam) throws ServiceException;
-
+    
+    public  Cart getCartMsg (String userid);
+    
 }

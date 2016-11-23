@@ -12,7 +12,7 @@ function login() {
 				if(data.result.accountTypeFk ==	200){
 					window.location = _path + "/ums/user/adminIndex";
 				}else{
-					window.location = _path + "/pms/product/findByHot";
+					window.location = _path + "/ums/user/customerIndex";
 				}
 			} else if (data.status == "F") {
 				alert(data.message);
@@ -22,4 +22,5 @@ function login() {
 			alert("error");
 		}
 	});
+
 }

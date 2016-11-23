@@ -1,22 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <jsp:include page="../common/meta.jsp" />
+<jsp:include page="../common/resources.jsp" /> 
 <div class="right_content">
 	<div class="shopping_cart">
 		<div class="cart_title">购物车</div>
 
 		<div class="cart_details">
-			3 items <br /> <span class="border_cart"></span> 总价: <span
-				class="price">350$</span>
+			${mycart.number} items <br /> <span class="border_cart"></span> 总价: <span
+				class="price">${mycart.number*mycart.price}元</span>
 		</div>
 
 		<div class="cart_icon">
-		<c:if test="${sessionScope.LOGIN_USER.id != null}">
-			<a href="${path}/ums/Shoppingcar/showShoppingCart?id=${sessionScope.LOGIN_USER.id}" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img
+			<a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img
 				src="/shopcenter/images/shoppingcart.png" alt="" title="" width="48" height="48"
 				border="0" /></a>
-		</c:if>
 		</div>
 
 	</div>

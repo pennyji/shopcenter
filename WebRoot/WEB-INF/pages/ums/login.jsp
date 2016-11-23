@@ -54,10 +54,10 @@ $(function() {
 
 </head>
 <body>
-	<p align="center"><a href="${path}/pms/product/findByHot">商城首页</a></p>
+	<p align="center"><a href="${path}/pms/product/showIndex">商城首页</a></p>
 
 	<div class="container">
-		<form class="form-signin" role="form" id = "form" action="#">
+		<form class="form-signin" role="form" id = "form" action="${path}/ums/user/validatelogin">
 		<h3>用户登录</h3>
 			<input name="account" id="account" class="form-control" placeholder="账号" required autofocus>
 			<span id="act"></span>
@@ -71,7 +71,6 @@ $(function() {
 			<a href="">忘记密码</a>
 			</p>
 			<button class="btn btn-lg btn-primary btn-block" type="button" onclick="login()">登录</button>
-
 		</form>
 	</div>
 	

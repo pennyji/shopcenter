@@ -1,64 +1,60 @@
 package com.cheer.mini.pms.model;
 
-import java.util.Date;
-
 public class Product {
-		private String pid;
-		private String pname;
-		private String type;
-		private double price;
-		private String image;
-		private String detail;
-		private int hot;
-		private Date date;
-		
-		
-		public String getPid() {
-			return pid;
-		}
-		public void setPid(String pid) {
-			this.pid = pid;
-		}
-		public String getPname() {
-			return pname;
-		}
-		public void setPname(String pname) {
-			this.pname = pname;
-		}
-		public String getType() {
-			return type;
-		}
-		public void setType(String type) {
-			this.type = type;
-		}
-		public double getPrice() {
-			return price;
-		}
-		public void setPrice(double price) {
-			this.price = price;
-		}
-		public String getImage() {
-			return image;
-		}
-		public void setImage(String image) {
-			this.image = image;
-		}
-		public String getDetail() {
-			return detail;
-		}
-		public void setDetail(String detail) {
-			this.detail = detail;
-		}
-		public int getHot() {
-			return hot;
-		}
-		public void setHot(int hot) {
-			this.hot = hot;
-		}
-		public Date getDate() {
-			return date;
-		}
-		public void setDate(Date date) {
-			this.date = date;
-		}
+
+	private String productId;
+	private String productName;
+	private double productPrice;
+	private String productDetail;
+	private String productType;
+	private String productPath;
+
+	public String getProductId() {
+		return productId;
+	}
+
+	public void setProductId(String productId) {
+		this.productId = productId;
+	}
+
+	public String getProductName() {
+		return productName;
+	}
+
+	public void setProductName(String productName) {
+		this.productName = productName;
+	}
+
+	public double getProductPrice() {
+		return productPrice;
+	}
+
+	public void setProductPrice(double productPrice) {
+		this.productPrice = productPrice;
+	}
+
+	public String getProductDetail() {
+		return productDetail;
+	}
+
+	public void setProductDetail(String productDetail) {
+		this.productDetail = productDetail;
+	}
+
+	public String getProductType() {
+		return productType;
+	}
+
+	public void setProductType(String productType) {
+		this.productType = productType;
+	}
+
+	public String getProductPath() {
+		return productPath;
+	}
+
+	public void setProductPath(String productPath) {
+		this.productPath = productPath;
+	}
+
 }

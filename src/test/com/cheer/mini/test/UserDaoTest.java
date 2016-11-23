@@ -32,6 +32,20 @@ public class UserDaoTest {
     
     @Autowired
     private UserDao userDao;
+
+    @Test
+    public void testGetByAccount() {
+       String account = "lucy";
+       
+       User user = userDao.get(account);
+    }
+
+    @Test
+    public void testGet() {
+       String id = "442581E35D8911E68C9F3C970ED7EF76";
+       
+       User user = userDao.get(id);
+    }
     
     @Test
     public void testSave() {

@@ -19,21 +19,20 @@
 		<jsp:include page="../common/menu.jsp" />
 		<jsp:include page="../common/left.jsp" />
 		<div class="center_content">
-		<div class="center_title_bar"> <a href="${path }/pms/product/findByAll?page=1" >点击显示所有商品</a></div>
-			<div class="">最新商品</div>
-			<c:forEach items="${newlist }" var="list">
+			<div class="center_title_bar">最新商品</div>
+
 			<div class="prod_box">
 				<div class="top_prod_box"></div>
 				<div class="center_prod_box">
 					<div class="product_title">
-						<a href="details.html">${list.pname}</a>
+						<a href="details.html">Motorola 156 MX-VL</a>
 					</div>
 					<div class="product_img">
-						<a href="${path }/pms/product/findById?pid=${list.pid}"><img src="${path }/${list.image}" alt=""
-							title="" border="0" width="80" height="120"/></a>
+						<a href="details.html"><img src="/shopcenter/images/laptop.gif" alt=""
+							title="" border="0" /></a>
 					</div>
 					<div class="prod_price">
-						 <span class="price">${list.price}</span>
+						<span class="reduce">350$</span> <span class="price">270$</span>
 					</div>
 				</div>
 				<div class="bottom_prod_box"></div>
@@ -47,29 +46,21 @@
 						class="left_bt" /></a> <a href="details.html" class="prod_details">详情</a>
 				</div>
 			</div>
-			</c:forEach>
-
-
-			
 
 
 
-			<div class="center_title_bar"><a href="${path }/pms/product/findByListHot?page=1">推荐商品</a></div>
-			
-			<c:forEach items="${list}" var="product">
 			<div class="prod_box">
 				<div class="top_prod_box"></div>
 				<div class="center_prod_box">
 					<div class="product_title">
-						<a href="details.html">${product.pname}</a>
+						<a href="details.html">Iphone Apple</a>
 					</div>
 					<div class="product_img">
-						<a href="${path }/pms/product/findById?pid=${product.pid}">
-						<img src="${path }/${product.image}" alt=""
-							title="" border="0" height="50"  width="60"/></a>
+						<a href="details.html"><img src="/shopcenter/images/p4.gif" alt=""
+							title="" border="0" /></a>
 					</div>
 					<div class="prod_price">
-						<span class="reduce">${product.price}</span> <span class="price">270$</span>
+						<span class="price">270$</span>
 					</div>
 				</div>
 				<div class="bottom_prod_box"></div>
@@ -83,8 +74,192 @@
 						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
 				</div>
 			</div>
-			</c:forEach>
-			
+
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Samsung Webcam</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/p5.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="reduce">350$</span> <span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Motorola 156 MX-VL</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/laptop.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="reduce">350$</span> <span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+
+
+
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Iphone Apple</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/p4.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Samsung Webcam</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/p5.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="reduce">350$</span> <span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+
+
+
+			<div class="center_title_bar">推荐商品</div>
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Motorola 156 MX-VL</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/laptop.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="reduce">350$</span> <span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Iphone Apple</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/p4.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
+
+			<div class="prod_box">
+				<div class="top_prod_box"></div>
+				<div class="center_prod_box">
+					<div class="product_title">
+						<a href="details.html">Samsung Webcam</a>
+					</div>
+					<div class="product_img">
+						<a href="details.html"><img src="/shopcenter/images/p5.gif" alt=""
+							title="" border="0" /></a>
+					</div>
+					<div class="prod_price">
+						<span class="reduce">350$</span> <span class="price">270$</span>
+					</div>
+				</div>
+				<div class="bottom_prod_box"></div>
+				<div class="prod_details_tab">
+					<a href="#" title="header=[Add to cart] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/cart.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Specials] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
+					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
+						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
+						class="left_bt" /></a> <a href="details.html" class="prod_details">details</a>
+				</div>
+			</div>
 		</div>
 		<!-- end of center content -->
 		<jsp:include page="../common/right.jsp" />

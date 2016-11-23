@@ -1,18 +1,28 @@
 package com.cheer.mini.category.controller;
 
-
 import java.util.List;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.cheer.mini.category.model.Category;
+import com.cheer.mini.category.service.CategoryService;
+
 
 @Controller
 @RequestMapping("pms/category")
 public class CategoryController {
-	
-	
+	private CategoryService categoryService;
+	@RequestMapping("tepy")
+	public ModelAndView category(@RequestParam("name")String name){
+		List<Category> list=categoryService.findname();
+		ModelAndView mv=new ModelAndView();
+		mv.addObject("list", list);
+		mv.setViewName("/page/desc.jsp");
+		return mv;
+	}
 	
 	
 	
