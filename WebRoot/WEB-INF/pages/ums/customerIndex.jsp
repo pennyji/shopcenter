@@ -48,7 +48,6 @@
 				</div>
 			</div>
 			</c:forEach>
-
 			<div class="center_title_bar">推荐商品</div>
 			
 			<c:forEach items="${list}" var="product">
