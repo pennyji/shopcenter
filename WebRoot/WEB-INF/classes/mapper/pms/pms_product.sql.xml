@@ -29,4 +29,56 @@
 	<select id="findById" parameterType="String" resultType="Product">
 		SELECT*FROM pms_product WHERE pid=#{value}
 	</select>
+	
+	<!-- 去重查询商品分类 -->
+	<select id="findByType"  resultType="Product">
+		SELECT * FROM pms_product group by type 
+	</select>
+	<!-- 根据分类查询商品 -->
+	<select id="findByTypeProduct" parameterType="String" resultType="Product">
+		Select * from pms_product where type = #{type}
+	</select>
+	<!-- 根据商品ID查询商品 -->
+	<select id="findByPid" parameterType="String" resultType="Product">
+		Select * from pms_product where pid = #{pid}
+	</select>
+	<!-- 根据商品hot查询商品 -->
+	<select id="findByHotOne"  resultType="Product">
+		Select * from pms_product where hot = "1" order by date desc
+	</select>
+	
+	<!-- 查找时间查找六条最新商品放到首页 -->
+	<select id="findByNew"  resultType="Product">
+		SELECT*FROM pms_product  ORDER BY date DESC LIMIT 6
+	</select>
+	
+	<!--====================================================  -->
+		<!-- 分页时设置总记录数 -->
+	<select id="findCount" resultType="int">
+		select count(*) from pms_product WHERE hot=#{hot}
+	</select>
+			<!-- 查找所有热门商品带分页 -->
+	<select id="findByPage"  resultType="Product">
+		SELECT*FROM pms_product WHERE hot=#{0} LIMIT #{1},#{2}
+	</select>
+	
+	<!-- ============================================== -->
+	<!-- 分页时设置总记录数 -->
+	<select id="findCountAll" resultType="int">
+		select count(*) from pms_product 
+	</select>
+			<!-- 查找所有商品带分页 -->
+	<select id="findByPageAll"  resultType="Product">
+		SELECT*FROM pms_product LIMIT #{0},#{1}
+	</select>
+	
+	<!-- =============================================== -->
+	<!-- 分页时设置总记录数 -->
+	<select id="findCountType" resultType="int">
+		select count(*) from pms_product WHERE type=#{value}
+	</select>
+			<!-- 查找所有热门商品带分页 -->
+	<select id="findByPageType"  resultType="Product">
+		SELECT*FROM pms_product WHERE type=#{0} LIMIT #{1},#{2}
+	</select>
 </mapper> 

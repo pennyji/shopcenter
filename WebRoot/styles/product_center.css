@@ -1,0 +1,12 @@
+.inner {width: 235px ; height:280px;} 
+.inner a{ display:block; position: relative;  width: 200px; height: 200px; color: #018BD3;}
+.inner a img{margin:0 auto;max-width:120px;max-height:150px;text-align: center}
+#productcenter {list-style-type: none;}
+#product {float: left; width: 240px; height: 280px; line-height: 18px; position: relative; border-bottom: solid 1px #e5e5e5; }
+#product div {margin-bottom:1px;margin-left: 10px;} 
+.price {padding-bottom: 3px; color: #878787; }
+.price_n {color: #c30; font-weight: bold; padding-right: 10px; font-family: Arial; }
+#productname {text-decoration:underline; color:#555555; display: block; overflow: hidden; width: 200px; height:15px; font-family: Arial; }
+#productname:hover {color:#FF6600; }
+.inner a:hover {color:#FF6600; }
+.inner a:VISITED {color:#018BD3;}
