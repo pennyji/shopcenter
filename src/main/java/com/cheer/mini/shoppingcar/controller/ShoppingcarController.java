@@ -26,7 +26,7 @@ public class ShoppingcarController {
 	@Autowired
 	private ShoppingcarService shoppingcarService;
 	
-	@RequestMapping(value = "/addToCart")
+	/*@RequestMapping(value = "/addToCart")
 	public ModelAndView addToCart(HttpServletRequest request)
 	{
 		AddOrderlistRequest  addOrderlistrequest =new AddOrderlistRequest();
@@ -36,11 +36,15 @@ public class ShoppingcarController {
 		ModelAndView mv =new ModelAndView();
 		mv.addObject("addOrderlistrequest",addOrderlistrequest);
 		mv.setViewName("/ums/shoppingcar");
-		
 		return mv;
-	}
-
-
+	}*/
+		
+	/**
+	 * 添加商品到购物车
+	 * @param pid
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@RequestParam(value = "pid") String pid,
 			HttpServletRequest request) {
@@ -53,12 +57,16 @@ public class ShoppingcarController {
 		if (user == null) {
 			modelAndView.setViewName("/ums/login");
 		}else {
+			
 			shoppingcarService.addAddCommodity(user.getId(), pid, quantity);
 			modelAndView.setViewName("/ums/addsuccess");
 		}
 		return modelAndView;
 		
 	}
+
+
+	
 
 	@Autowired
 	private ShoppingcarDao shoppingcarDao;
