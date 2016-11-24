@@ -1,6 +1,7 @@
 package com.cheer.mini.ums.controller;
 
 
+
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,6 +27,8 @@ import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
 import com.cheer.mini.pms.model.Product;
 import com.cheer.mini.pms.service.ProductService;
+import com.cheer.mini.shoppingcar.model.Cart;
+import com.cheer.mini.shoppingcar.service.ShoppingcarService;
 import com.cheer.mini.ums.dto.request.LoginRequest;
 import com.cheer.mini.ums.model.User;
 import com.cheer.mini.ums.service.UserService;
@@ -38,6 +41,8 @@ public class LoginController {
 	private UserService userService;
 	@Autowired
 	private ProductService productService;
+	@Autowired
+	private ShoppingcarService shoppingcarService;
 
 	
 	@RequestMapping("/login")
@@ -102,16 +107,26 @@ public class LoginController {
 		Product product = productService.findLatestProduct();
 		List<Product> products = productService.findAll(params);
 		List<Product> list=productService.findByHot(Constants.Hot);
+		List<Product> typelist = productService.findByType();
+		List<Product> hotlist = productService.findByHotOne();
+		List<Product> newlist = productService.findByNew();
+		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
+		if(user != null){
+			Map<String,Object> cart=shoppingcarService.getCartMsg(user.getId());
+			request.getSession().setAttribute("totalNum", cart.get("totalNumber"));
+			request.getSession().setAttribute("totalCount", cart.get("totalCount"));
+		}
+		
+		request.getSession().setAttribute("typelist", typelist);
+		request.getSession().setAttribute("hotlist", hotlist);
+		request.getSession().setAttribute(Constants.LATEST_PRODUCT, product);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("list", list);
 		mv.addObject(Constants.PRODUCTS, products);
-		mv.addObject(Constants.LATEST_PRODUCT, product);
+		mv.addObject("newlist", newlist);
 		mv.setViewName("/ums/customerIndex");
-//		request.getSession().setAttribute(Constants.PRODUCTS, products);
-//		request.getSession().setAttribute(Constants.LATEST_PRODUCT, product);
 		
 		return mv;
 		
 	}
-	
 }

@@ -21,7 +21,7 @@
 		SELECT*FROM pms_product WHERE hot=#{value} LIMIT 3
 	</select>
 	
-<<<<<<< HEAD
+
 	<select id="findLatestProduct" resultType="Product">
 		SELECT * from pms_product p where date=(SELECT MAX(date) from pms_product)
 	</select>
@@ -34,15 +34,12 @@
 		SELECT * from pms_product where pid= #{productId}
 	</select>
 
-=======
 	
 	<select id="findByListHot" parameterType="int" resultType="Product">
 		SELECT*FROM pms_product WHERE hot=#{value}
 	</select>
 		
-	<select id="findById" parameterType="String" resultType="Product">
-		SELECT*FROM pms_product WHERE pid=#{value}
-	</select>
+	
 	
 	<!-- 去重查询商品分类 -->
 	<select id="findByType"  resultType="Product">
@@ -95,5 +92,4 @@
 	<select id="findByPageType"  resultType="Product">
 		SELECT*FROM pms_product WHERE type=#{0} LIMIT #{1},#{2}
 	</select>
->>>>>>> master
 </mapper> 
