@@ -34,16 +34,12 @@
 				<div class="oferta">
 
 					<div class="oferta_content">
-						<img src="/shopcenter/images/laptop.png" width="94" height="92" border="0"
-							class="oferta_img" />
+						<img src="/shopcenter/${LATEST_PRODUCT.image}" width="94" height="92" border="0" class="oferta_img" />
 
 						<div class="oferta_details">
-							<div class="oferta_title">Samsung GX 2004 LM</div>
-							<div class="oferta_text">Lorem ipsum dolor sit amet,
-								consectetur adipisicing elit, sed do eiusmod tempor incididunt
-								ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis
-								nostrud exercitation ullamco</div>
-							<a href="details.html" class="details">details</a>
+							<div class="oferta_title">${LATEST_PRODUCT.pname}</div>
+							<div class="oferta_text">${LATEST_PRODUCT.detail}</div>
+							<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}" class="details">详情</a>
 						</div>
 					</div>
 					<div class="oferta_pagination">

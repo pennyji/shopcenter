@@ -5,14 +5,15 @@
 <div class="right_content">
 	<div class="shopping_cart">
 		<div class="cart_title">购物车</div>
-
+	<c:if test="${sessionScope.LOGIN_USER.id != null}">
 		<div class="cart_details">
-			${mycart.number} items <br /> <span class="border_cart"></span> 总价: <span
-				class="price">${mycart.number*mycart.price}元</span>
+			数量：${totalNum}条 <br /> <span class="border_cart"></span> 总价: <span
+				class="price">${totalCount}元</span>
 		</div>
-
+	</c:if>
 		<div class="cart_icon">
-			<a href="#" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img
+		
+			<a href="${path}/ums/Shoppingcar/showShoppingCart?id=${sessionScope.LOGIN_USER.id}" title="header=[Checkout] body=[&nbsp;] fade=[on]"><img
 				src="/shopcenter/images/shoppingcart.png" alt="" title="" width="48" height="48"
 				border="0" /></a>
 		</div>
@@ -23,14 +24,14 @@
 	<div class="title_box">新商品</div>
 	<div class="border_box">
 		<div class="product_title">
-			<a href="details.html">Motorola 156 MX-VL</a>
+			<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}">${LATEST_PRODUCT.pname}</a>
 		</div>
 		<div class="product_img">
-			<a href="details.html"><img src="/shopcenter/images/p2.gif" alt="" title=""
-				border="0" /></a>
+			<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}"><img src="/shopcenter/${LATEST_PRODUCT.image}" alt="" title=""
+				border="0" width="80px" height="120px"/></a>
 		</div>
 		<div class="prod_price">
-			<span class="reduce">350$</span> <span class="price">270$</span>
+			<span class="price">${LATEST_PRODUCT.price}</span>
 		</div>
 	</div>
 

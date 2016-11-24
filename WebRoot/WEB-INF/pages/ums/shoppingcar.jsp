@@ -24,6 +24,7 @@
 				<h3>我的购物车：</h3>
 				<table border="1" align="center" cellpadding="10" cellspacing="0">
 					<tr>
+						<th></th>
 						<th>商品</th>
 						<th>单价</th>
 						<th>数量</th>
@@ -32,6 +33,7 @@
 					</tr>
 					<c:forEach items="${list}" var="myShoppingCart">
 						<tr>
+							<td><input type="checkbox"></td>
 							<td>${myShoppingCart.pname}</td>
 							<td>${myShoppingCart.price}</td>
 							<td>${myShoppingCart.number}</td>

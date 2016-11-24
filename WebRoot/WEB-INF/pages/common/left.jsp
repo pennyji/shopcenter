@@ -27,8 +27,8 @@
 			<a href="details.html">Motorola 156 MX-VL</a>
 		</div>
 		<div class="product_img">
-			<a href="details.html"><img src="/shopcenter/images/laptop.png" alt=""
-				title="" border="0" /></a>
+			<a href="${path}/pms/product/findById?productId=${hotlist.get(0).pid}"><img src="${path}/${hotlist.get(0).image}" alt=""
+				title="" border="0" width="100" height="130"/></a>
 		</div>
 		<div class="prod_price">
 			<span class="reduce">350$</span> <span class="price">270$</span>

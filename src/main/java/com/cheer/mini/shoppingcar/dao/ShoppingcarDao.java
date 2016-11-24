@@ -2,7 +2,10 @@ package com.cheer.mini.shoppingcar.dao;
 
 import java.util.List;
 
+
+
 import com.cheer.mini.pms.model.Product;
+import com.cheer.mini.shoppingcar.model.Cart;
 import com.cheer.mini.shoppingcar.model.MyShoppingCart;
 import com.cheer.mini.shoppingcar.model.Shoppingcar;
 
@@ -24,5 +27,7 @@ public interface ShoppingcarDao {
 	 * @return
 	 */
 	public List<MyShoppingCart> queryByUserId(String id);
+	
+	public  List<Cart> getCartMsg (String userid);
 	
 }
