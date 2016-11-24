@@ -23,6 +23,7 @@ public class ShoppingcarController {
 	@Autowired
 	private ShoppingcarService shoppingcarService;
 	
+
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@RequestParam(value = "pid") String pid,
 			HttpServletRequest request) {
@@ -35,12 +36,16 @@ public class ShoppingcarController {
 		if (user == null) {
 			modelAndView.setViewName("/ums/login");
 		}else {
+			
 			shoppingcarService.addAddCommodity(user.getId(), pid, quantity);
 			modelAndView.setViewName("/ums/addsuccess");
 		}
 		return modelAndView;
 		
 	}
+
+
+	
 
 	@Autowired
 	private ShoppingcarDao shoppingcarDao;
