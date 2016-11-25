@@ -112,7 +112,7 @@ body {
 
 <body>
 
-	<p align="center"><a href="${path}/pms/product/showIndex">商城首页</a></p>
+	<p align="center"><a href="${path}/pms/product/findByHot">商城首页</a></p>
 
 	<form id="form" class="form-signin">
 		<h3>用户注册</h3>

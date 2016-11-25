@@ -1,37 +1,31 @@
 <%@ page language="java" contentType="text/html; charset=utf-8"
 	pageEncoding="utf-8"%>
-
-
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<jsp:include page="../common/meta.jsp" />
 <div class="left_content">
 	<div class="title_box">类目</div>
 
 	<ul class="left_menu">
-		<li class="odd"><a href="services.html">Processors</a></li>
-		<li class="even"><a href="services.html">Motherboards</a></li>
-		<li class="odd"><a href="services.html">Desktops</a></li>
-		<li class="even"><a href="services.html">Laptops & Notebooks</a></li>
-		<li class="odd"><a href="services.html">Processors</a></li>
-		<li class="even"><a href="services.html">Motherboards</a></li>
-		<li class="odd"><a href="services.html">Processors</a></li>
-		<li class="even"><a href="services.html">Motherboards</a></li>
-		<li class="odd"><a href="services.html">Desktops</a></li>
-		<li class="even"><a href="services.html">Laptops & Notebooks</a></li>
-		<li class="odd"><a href="services.html">Processors</a></li>
-		<li class="even"><a href="services.html">Motherboards</a></li>
+		<c:forEach items="${typelist}" var="typelist" varStatus="tl">
+		 <c:choose>
+		 <c:when test="${tl.index % 2 != 0}"><li class="even"><a href="${path }/pms/product/findByType?page=1&type=${typelist.type}">${typelist.type}</a></li></c:when>
+		 <c:otherwise><li class="odd"><a href="${path }/pms/product/findByType?page=1&type=${typelist.type}">${typelist.type}</a></li></c:otherwise>
+		 </c:choose>
+		</c:forEach>
 	</ul>
 
 
 	<div class="title_box">热门推荐</div>
 	<div class="border_box">
 		<div class="product_title">
-			<a href="details.html">Motorola 156 MX-VL</a>
+			<a href="#">${hotlist.get(0).pname}</a>
 		</div>
 		<div class="product_img">
-			<a href="details.html"><img src="/shopcenter/images/laptop.png" alt=""
-				title="" border="0" /></a>
+			<a href="${path}/pms/product/findById?productId=${hotlist.get(0).pid}"><img src="${path}/${hotlist.get(0).image}" alt=""
+				title="" border="0" width="100" height="130"/></a>
 		</div>
 		<div class="prod_price">
-			<span class="reduce">350$</span> <span class="price">270$</span>
+			<span class="reduce">350$</span> <span class="price">${hotlist.get(0).price}</span>
 		</div>
 	</div>
 
