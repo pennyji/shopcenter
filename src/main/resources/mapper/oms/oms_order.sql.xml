@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8" ?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+
+<mapper namespace="com.cheer.mini.oms.dao.OrderDao">
+
+	<insert id="insert" parameterType="Order">
+		INSERT INTO oms_order
+		(
+		orderid,
+		userid,
+		name,
+		address,
+		phone,
+		orderdate,
+		orderstatus,
+		totalsum
+		)
+		VALUES
+		(
+		#{orderId},
+		#{userId},
+		#{name},
+		#{address},
+		#{phone},
+		#{orderDate},
+		#{orderStatus},
+		#{totalSum}
+		)
+	</insert>
+	
+	<update id="update">
+		UPDATE orderlist 
+		SET orderid=#{1},itemstatus=#{2} 
+		WHERE orderlist.userid=#{0} 
+		AND orderlist.orderid IS NULL
+	</update>
+	
+	<select id="queryByUserId" parameterType="String" resultType="Order">
+		SELECT orderid,`name`,phone,address,totalsum
+		FROM oms_order 
+		WHERE userid = #{userId}
+	</select>
+	
+	<select id="queryByOrderId" parameterType="String" resultType="MyShoppingCart">
+		SELECT a.number,b.image,b.pname,b.price
+		FROM orderlist a, pms_product b
+		WHERE a.pid = b.pid
+		AND a.orderid = #{orderId}
+	</select>
+	
+	<select id="query" parameterType="String" resultType="MyShoppingCart">
+		SELECT p.pname,p.price,p.image,p.pid,o.number 
+		FROM pms_product p,orderlist o 
+		WHERE o.pid = p.pid 
+		AND o.pid = #{1} 
+		AND o.userid = #{0}
+	</select>
+	
+</mapper> 

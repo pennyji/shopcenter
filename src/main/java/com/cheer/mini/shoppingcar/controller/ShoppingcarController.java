@@ -1,6 +1,7 @@
 package com.cheer.mini.shoppingcar.controller;
 
 import java.util.List;
+import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -11,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cheer.mini.base.Constants;
-import com.cheer.mini.shoppingcar.dao.ShoppingcarDao;
+import com.cheer.mini.pms.service.ProductService;
 import com.cheer.mini.shoppingcar.model.MyShoppingCart;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
 import com.cheer.mini.ums.model.User;
@@ -23,11 +24,20 @@ public class ShoppingcarController {
 	@Autowired
 	private ShoppingcarService shoppingcarService;
 	
+	@Autowired
+	private ProductService productService;
+	
+	/**
+	 * 添加商品到购物车
+	 * @param pid
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/addToCart")
 	public ModelAndView addToCart(@RequestParam(value = "pid") String pid,
 			HttpServletRequest request) {
 		
-		System.out.println("addToCart()");
+		System.out.println("addToCart()...");
 		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
 		int quantity = Integer.parseInt(request.getParameter("count"));
 		System.out.println(quantity);
@@ -35,26 +45,64 @@ public class ShoppingcarController {
 		if (user == null) {
 			modelAndView.setViewName("/ums/login");
 		}else {
-			shoppingcarService.addAddCommodity(user.getId(), pid, quantity);
+			List<MyShoppingCart> myShoppingCarts = shoppingcarService.queryProduct2(user.getId(), pid, Constants.ItemStatus.ITEM_STATUS_NO);
+			if (myShoppingCarts.size() == 0) {
+				shoppingcarService.addAddCommodity(user.getId(), pid, quantity);
+			}else {
+				for (int i = 0; i < myShoppingCarts.size(); i++) {
+					shoppingcarService.updateProduct(myShoppingCarts.get(i).getNumber() 
+							+ quantity, user.getId(), pid);
+				}
+			}
 			modelAndView.setViewName("/ums/addsuccess");
 		}
 		return modelAndView;
 		
 	}
 
-	@Autowired
-	private ShoppingcarDao shoppingcarDao;
-
+	/**
+	 * 显示购物车中的商品
+	 * @param request
+	 * @return
+	 */
 	@RequestMapping("/showShoppingCart")
 	public ModelAndView showShoppingCart(HttpServletRequest request) {
+		System.out.println("showShoppingCart()...");
 		String id = request.getParameter("id");
 		System.out.println(id);
-		List<MyShoppingCart> list = shoppingcarDao.queryByUserId(id);
+		List<MyShoppingCart> list = shoppingcarService.queryProduct1(id);
 		ModelAndView modelAndView = new ModelAndView();
+		if (list.size() == 0) {
+			modelAndView.setViewName("/ums/emptycart");
+		}else {
+			Map<String,Object> cart = shoppingcarService.getCartMsg(id);
+			request.getSession().setAttribute("totalMoney", cart.get("totalCount"));
+			modelAndView.addObject("list", list);
+			modelAndView.setViewName("/ums/shoppingcar");
+		}
+		return modelAndView;
+	}
+	
+	/**
+	 * 移除购物车中商品项
+	 * @param pid
+	 * @param request
+	 * @return
+	 */
+	@RequestMapping("/deleteItem")
+	public ModelAndView deleteItem(@RequestParam("pid") String pid, HttpServletRequest request){
+		System.out.println("deleteItem()...");
+		shoppingcarService.deleteItem(pid);
+		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
+		List<MyShoppingCart> list = shoppingcarService.queryProduct1(user.getId());
+		ModelAndView modelAndView = new ModelAndView();
+		if (list.size() == 0) {
+			modelAndView.setViewName("/ums/emptycart");
+		}else{
 		modelAndView.addObject("list", list);
 		modelAndView.setViewName("/ums/shoppingcar");
+		}
 		return modelAndView;
-
 	}
 
 }

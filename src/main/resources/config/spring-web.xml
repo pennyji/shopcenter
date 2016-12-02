@@ -15,6 +15,7 @@
 			<mvc:mapping path="/" />
 		    <mvc:exclude-mapping path="/ums/**" /> 
 			<mvc:exclude-mapping path="/pms/**" />
+			<mvc:exclude-mapping path="/oms/**" />
 			<mvc:exclude-mapping path="/styles/**" />
 			<mvc:exclude-mapping path="/commdity_images/**" />
 			<mvc:exclude-mapping path="/images/**" />
@@ -24,6 +25,7 @@
 			<mvc:exclude-mapping path="/menu/**"/>
 			<mvc:exclude-mapping path="/jquery/**"/>
 			<mvc:exclude-mapping path="/pages/pms/**"/>
+			<mvc:exclude-mapping path="/pages/oms/**"/>
 			<bean class="com.cheer.mini.base.interceptors.LoginInterceptor">
 			</bean>
 		</mvc:interceptor>

@@ -6,7 +6,6 @@ import java.util.Map;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.pms.model.Product;
 
-
 public interface ProductDao {
 	/*//查找商品类型
 	public Product findByType(String account);*/ 
@@ -24,7 +23,7 @@ public interface ProductDao {
 	
 	public List<Product> findAll(Map<String,Integer> params);
 	
-	public Product findById(String productId);
+	public Product findById(String pid);
 
 	//查询所有热门商品
 	public List<Product> findByListHot(int hot);
@@ -33,7 +32,7 @@ public interface ProductDao {
 	//根据商品分类查询商品
 	public List<Product> findByTypeProduct(String type) throws ServiceException;
 	//根据商品Id查询商品
-	public List<Product> findByPid(String pid) throws ServiceException ;
+	public Product findByPid(String pid) throws ServiceException ;
 	//根据商品Hot查询商品
 	public List<Product> findByHotOne() throws ServiceException ;
 	//最新商品6条

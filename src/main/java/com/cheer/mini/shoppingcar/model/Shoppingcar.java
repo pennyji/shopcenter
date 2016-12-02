@@ -2,6 +2,7 @@ package com.cheer.mini.shoppingcar.model;
 
 import java.util.Date;
 
+import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.util.StringUtil;
 
 public class Shoppingcar {
@@ -12,11 +13,11 @@ public class Shoppingcar {
 	
 	private int number;
 	
-	private int itemstatus;
+	private int itemstatus = Constants.ItemStatus.ITEM_STATUS_NO;
 	
 	private Date addtime;
 	
-	private String orderid = StringUtil.createUUID();
+	private String orderid;
 	
 	private String id;
 
