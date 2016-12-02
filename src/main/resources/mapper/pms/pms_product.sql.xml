@@ -31,7 +31,7 @@
 	</select>
 	
 	<select id="findById" parameterType="String" resultType="Product">
-		SELECT * from pms_product where pid= #{productId}
+		SELECT * from pms_product where pid= #{pid}
 	</select>
 
 	

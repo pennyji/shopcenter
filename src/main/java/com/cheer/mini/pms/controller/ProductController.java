@@ -20,6 +20,7 @@ import com.cheer.mini.pms.service.ProductService;
 @Controller
 @RequestMapping("/pms/product")
 public class ProductController {
+	
 	@Autowired
 	private ProductService productService;
 
@@ -56,9 +57,9 @@ public class ProductController {
 	@RequestMapping("/findById")
 	// 根据商品Id查询商品
 	public ModelAndView fingById(final HttpServletRequest request,
-			@RequestParam("productId") String productId)
+			@RequestParam("pid") String pid)
 			throws ServiceException, Exception {
-		Product product = productService.findById(productId);
+		Product product = productService.findById(pid);
 		ModelAndView mv = new ModelAndView();
 		mv.addObject("product", product);
 		mv.setViewName("/pms/product_detail");

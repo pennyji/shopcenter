@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.util.PageBean;
-
 import com.cheer.mini.pms.dao.ProductDao;
 import com.cheer.mini.pms.model.Product;
 import com.cheer.mini.pms.service.ProductService;
 
 @Service
 public class ProductServiceImpl implements ProductService{
+	
 	@Autowired
 	private ProductDao productDao;
 	
@@ -92,8 +92,8 @@ public class ProductServiceImpl implements ProductService{
 
 	@Override
 	public Product findByPid(String pid) throws ServiceException {
-		// TODO Auto-generated method stub
-		return null;
+		Product product = productDao.findByPid(pid);
+		return product;
 	}
 
 	

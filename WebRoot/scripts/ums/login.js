@@ -5,7 +5,7 @@ function login() {
 		type : "POST",
 		contentType : "application/json;charset=utf-8",
 		url : _path + "/ums/user/validatelogin",
-		dataType : "json",
+		dataType : "json",//服务器返回的数据类型
 		data : JSON.stringify(formData),//封装后转换成为Hash Map的格式传递给后台
 		success : function(data) {
 			if (data.status == "S") {

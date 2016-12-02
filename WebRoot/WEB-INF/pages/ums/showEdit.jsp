@@ -47,7 +47,7 @@ body {
 		<br>
 		<input type="hidden" name = "gender" class="form-control" value="${sessionScope.LOGIN_USER.gender }" />
 		<br>
-		<p align="center">返回<a href="${path}/ums/user/customerIndex">首页</a></p>
+		<p align="center">返回<a href="${path }/ums/user/showIndex">首页</a></p>
 		<input class="btn btn-lg btn-primary btn-block" type="submit" value="保存修改"/>
 	</form>
 

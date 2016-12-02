@@ -11,7 +11,26 @@
 <jsp:include page="../common/meta.jsp" />
 <jsp:include page="../common/resources.jsp" />
 <script src="${path }/scripts/ums/login.js?20160811"></script>
+<script src="${path }/scripts/ums/shoppingCar.js"></script>
 
+<script type="text/javascript">
+	
+	$(function(){
+		$("#select_All").click(function(){
+			var flag = this.checked;
+			$(":checkbox[name='item']").prop("checked",flag);
+		});
+		$(":checkbox[name='item']").click(function(){
+			$("#select_All").attr("checked",$(":checkbox[name='item']").length == $(":checkbox[name='item']:checked").length);
+			
+		});
+	});
+	
+</script>
+
+<style type="text/css">
+	table{text-align: center;}
+</style>
 </head>
 <body>
 	<div id="main_container">
@@ -21,11 +40,20 @@
 			<jsp:include page="../common/left.jsp" />
 			<div class="center_content">
 			
-				<h3>我的购物车：</h3>
-				<table border="1" align="center" cellpadding="10" cellspacing="0">
+				<c:if test="${sessionScope.LOGIN_USER.id == null}">
+					<center>
+					<h1>您好！请登录。</h1>
+					<h4>登录后将显示您之前加入的商品。</h4>
+					</center>
+				</c:if>
+				
+				<c:if test="${sessionScope.LOGIN_USER.id != null}">
+				<h1>我的购物车：</h1>
+				<table cellspacing="10">
 					<tr>
-						<th></th>
-						<th>商品</th>
+						<th style="width: 30px">全选<input type="checkbox" id="select_All"/></th>
+						<th>图片</th>
+						<th style="width:220px">商品</th>
 						<th>单价</th>
 						<th>数量</th>
 						<th>小计（元）</th>
@@ -33,16 +61,29 @@
 					</tr>
 					<c:forEach items="${list}" var="myShoppingCart">
 						<tr>
-							<td><input type="checkbox"></td>
+							<td><input type="checkbox" name="item" id="item"/><input type="hidden"  value="${myShoppingCart.pid}"></td>
+							<td><img src="/shopcenter/${myShoppingCart.image}" width="30px" height="30px"/></td>
 							<td>${myShoppingCart.pname}</td>
-							<td>${myShoppingCart.price}</td>
-							<td>${myShoppingCart.number}</td>
-							<td>${myShoppingCart.subtotal}</td>
-							<td><a href="#"><input type="button" value="删 除"/></a></td>
+							<td id="price">${myShoppingCart.price}</td>
+							<td id="number">
+								<input id="min" name="" type="button" value="-" class="min" disabled="disabled"/>
+								<input id="text_box" name="goodnum" type="text" value="${myShoppingCart.number}" style="width:20px;" />
+								<input id="add" name="" type="button" value="+" class="add"/>
+								<input type="hidden"  value="${myShoppingCart.price}">
+							</td>
+							<td id="subtotal">${myShoppingCart.subtotal}</td>
+							<td><a href="${ path }/ums/Shoppingcar/deleteItem?pid=${myShoppingCart.pid}">删 除</a></td>
 						</tr>
 					</c:forEach>	
 				</table>
-			
+				
+				<div align="right">
+					<h2>总 价：${totalMoney}元</h2>
+					<a href="javascript:void(0);" id="jiesuan"> 去 结 算 </a>
+				</div>
+				
+				</c:if>
+				
 			</div>
 			<!-- end of center content -->
 			<jsp:include page="../common/right.jsp" />
