@@ -37,11 +37,6 @@
                  <div class="product_img_big">
 
                  <a href="javascript:popImage('images/big_pic.jpg','Some Title')" title="header=[Zoom] body=[&nbsp;] fade=[on]"><img src="${path }/${product.image}" alt="" title="" border="0" width="80" height="100"/></a>
-                 <div class="thumbs">
-                 <%-- <a href="#" title="header=[Thumb1] body=[&nbsp;] fade=[on]"><img src="${path }/images/thumb1.gif" alt="" title="" border="0" /></a>
-                 <a href="#" title="header=[Thumb2] body=[&nbsp;] fade=[on]"><img src="${path }/images/thumb1.gif" alt="" title="" border="0" /></a>
-                 <a href="#" title="header=[Thumb3] body=[&nbsp;] fade=[on]"><img src="${path }/images/thumb1.gif" alt="" title="" border="0" /></a>
-                 --%> </div>
                  </div>
                      <div class="details_big_box">
                          <div class="product_title_big">${product.pname}</div>
@@ -62,10 +57,9 @@
                          <a href="javascript:void()" class="addtocart" onclick="insert();"> 添加到购物车</a>
                          <a href="#" class="compare">进行比较</a>
                      </div> 
-                                           
+                     <div class="detailDiv"><font color="#5F9FAB" size="5px">详情：</font><br>${product.detail}</div>                      
             </div>
-             <div class="center_title_bar">${product.detail}</div>
-            <div class="bottom_prod_box_big"></div>                                
+                                         
         </div>
    </div>
 		<!-- end of center content -->

@@ -54,7 +54,7 @@ $(function() {
 
 </head>
 <body>
-	<p align="center"><a href="${path}/pms/product/findByHot">商城首页</a></p>
+	<p align="center"><a href="${path}/ums/user/showIndex">商城首页</a></p>
 
 	<div class="container">
 		<form class="form-signin" role="form" id = "form" action="#">
