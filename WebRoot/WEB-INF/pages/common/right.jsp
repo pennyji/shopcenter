@@ -25,10 +25,10 @@
 	<div class="title_box">新商品</div>
 	<div class="border_box">
 		<div class="product_title">
-			<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}">${LATEST_PRODUCT.pname}</a>
+			<a href="${path}/pms/product/findById?pid=${LATEST_PRODUCT.pid}">${LATEST_PRODUCT.pname}</a>
 		</div>
 		<div class="product_img">
-			<a href="${path}/pms/product/findById?productId=${LATEST_PRODUCT.pid}"><img src="/shopcenter/${LATEST_PRODUCT.image}" alt="" title=""
+			<a href="${path}/pms/product/findById?pid=${LATEST_PRODUCT.pid}"><img src="/shopcenter/${LATEST_PRODUCT.image}" alt="" title=""
 				border="0" width="80px" height="120px"/></a>
 		</div>
 		<div class="prod_price">

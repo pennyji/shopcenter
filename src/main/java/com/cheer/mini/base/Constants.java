@@ -62,14 +62,14 @@ public class Constants {
     public class ItemStatus{
     	
     	/**
-    	 * 未付款
+    	 * 未生成订单
     	 */
-    	public static final int ITEM_STATUS_NOTPAY = 0;
+    	public static final int ITEM_STATUS_NO = 0;
     	
     	/**
-    	 * 已付款
+    	 * 已生成订单
     	 */
-    	public static final int ITEM_STATUS_PAY = 1;
+    	public static final int ITEM_STATUS_YES = 1;
     	
     }
     

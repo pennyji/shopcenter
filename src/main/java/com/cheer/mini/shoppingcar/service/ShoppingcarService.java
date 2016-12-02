@@ -1,17 +1,24 @@
 package com.cheer.mini.shoppingcar.service;
 
+import java.util.List;
 import java.util.Map;
-
+import com.cheer.mini.shoppingcar.model.MyShoppingCart;
 import com.cheer.mini.shoppingcar.model.Shoppingcar;
-
 
 public interface ShoppingcarService {
 
+	public Shoppingcar getbyorderlist(String orderlistid);
+	
+	public void addAddCommodity(String id,String pid,int number);
+	
+	public Map<String,Object> getCartMsg (String userid);
+	
+	public List<MyShoppingCart> queryProduct1(String id);
 
-	public Shoppingcar getbyorderlist(String orderlistid);//接口——通过orderlistid获得购物车
+	public List<MyShoppingCart> queryProduct2(String id,String pid,int itemstatus);
 	
-	public void addAddCommodity(String id,String pid,int number);//接口——通过用户id,商品pid,商品number添加到购物车
+	public void updateProduct(int number, String id, String pid);
 	
-	public  Map<String,Object> getCartMsg (String userid);
+	public void deleteItem(String pid);
 
 }

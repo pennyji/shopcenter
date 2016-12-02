@@ -21,7 +21,7 @@ public class ExceptionHandler implements HandlerExceptionResolver {
         ResultEntity result = null;
         String message=null;
         
-        //instanceof:在运行时指出 ex 是否是 ServiceException 或它子类的一个实例 返回布尔值
+        //instanceof:检测 ex 是否是 ServiceException 或它子类的一个实例 返回布尔值
         if(ex instanceof ServiceException)
         {
             message = ex.getMessage();

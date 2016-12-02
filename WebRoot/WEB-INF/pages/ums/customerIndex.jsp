@@ -26,10 +26,10 @@
 				<div class="center_prod_box">
 					<div class="product_title">
 						<input type="hidden" name="productId" id="productId"/>
-						<a href="${path}/pms/product/findById?productId=${product.pid}">${product.pname}</a>
+						<a href="${path}/pms/product/findById?pid=${product.pid}">${product.pname}</a>
 					</div>
 					<div class="product_img">
-						<a href="${path}/pms/product/findById?productId=${product.pid}"><img src="/shopcenter/${product.image}" alt=""
+						<a href="${path}/pms/product/findById?pid=${product.pid}"><img src="/shopcenter/${product.image}" alt=""
 							title="" border="0" width="80px" height="120px"/></a>
 					</div>
 					<div class="prod_price">
@@ -44,7 +44,7 @@
 						src="/shopcenter/images/favs.gif" alt="" title="" border="0" class="left_bt" /></a>
 					<a href="#" title="header=[Gifts] body=[&nbsp;] fade=[on]"><img
 						src="/shopcenter/images/favorites.gif" alt="" title="" border="0"
-						class="left_bt" /></a> <a href="${path}/pms/product/findById?productId=${product.pid}" class="prod_details">详情</a>
+						class="left_bt" /></a> <a href="${path}/pms/product/findById?pid=${product.pid}" class="prod_details">详情</a>
 				</div>
 			</div>
 			</c:forEach>
