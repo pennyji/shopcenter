@@ -17,7 +17,7 @@
 	<div id="menu_tab">
 		<div class="left_menu_corner"></div>
 		<ul class="menu">
-			<li><a href="index.html" class="nav1">首页</a></li>
+			<li><a href="${path}/ums/user/showIndex" class="nav1">首页</a></li>
 			<li class="divider"></li>
 			<li><a href="#" class="nav3">推荐商品</a></li>
 			<li class="divider" ></li>
