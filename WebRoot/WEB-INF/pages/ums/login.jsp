@@ -59,10 +59,10 @@ $(function() {
 	<div class="container">
 		<form class="form-signin" role="form" id = "form" action="#">
 		<h3>用户登录</h3>
-			<input name="account" id="account" class="form-control" placeholder="账号" required autofocus>
+			<input name="account" id="account" class="form-control" placeholder="账号" required autofocus />
 			<span id="act"></span>
 			<br>
-			<input name="password" type="password" id="password" class="form-control" placeholder="密码" required>
+			<input name="password" type="password" id="password" class="form-control" placeholder="密码" required />
 			<span id="pwd"></span>
 			<br>
 			<p align="center">

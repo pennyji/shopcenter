@@ -21,7 +21,7 @@
 			<a href="#">${hotlist.get(0).pname}</a>
 		</div>
 		<div class="product_img">
-			<a href="${path}/pms/product/findById?productId=${hotlist.get(0).pid}"><img src="${path}/${hotlist.get(0).image}" alt=""
+			<a href="${path}/pms/product/findById?pid=${hotlist.get(0).pid}"><img src="${path}/${hotlist.get(0).image}" alt=""
 				title="" border="0" width="100" height="130"/></a>
 		</div>
 		<div class="prod_price">

@@ -27,28 +27,36 @@
 		)
 	</insert>
 	
-	<select id="queryByUserId" resultType="MyShoppingCart">
-		SELECT a.pname,a.price,a.image,b.number 
+	<select id="getCartMsg" parameterType="String" resultType="Cart">
+        SELECT c.number,d.price,c.userid,c.orderlistid,c.pid
+        FROM orderlist c LEFT JOIN pms_product d ON  c.pid=d.pid 
+        WHERE c.userid=#{userid} and c.itemstatus=0
+	</select>
+	
+	<select id="query1" resultType="MyShoppingCart">
+		SELECT a.pid,a.pname,a.price,a.image,b.number 
 		FROM pms_product a 
 		LEFT JOIN orderlist b 
 		ON a.pid=b.pid 
 		WHERE b.userid=#{id} and b.itemstatus=0
 	</select>
 	
-	<!-- <select id="queryByUserId" resultType="MyShoppingCart">
-		SELECT p.* 
-		FROM pms_product p 
-		LEFT JOIN scms_shoppingcart sc 
-		ON p.pid=sc.pid 
-		LEFT JOIN ums_user u 
-		ON sc.id=u.id 
-		WHERE u.id=#{id}
-	</select> -->
-	
-	<select id="getCartMsg" parameterType="String" resultType="Cart">
-        SELECT c.number,d.price,c.userid,c.orderlistid,c.pid
-        FROM orderlist c LEFT JOIN pms_product d ON  c.pid=d.pid 
-        WHERE c.userid=#{userid} and c.itemstatus=0
+	<select id="query2" resultType="MyShoppingCart">
+		SELECT * FROM orderlist WHERE userid = #{0} AND pid = #{1} AND itemstatus = #{2}
 	</select>
-
+	
+	<update id="update">
+		UPDATE orderlist 
+		SET number = #{0}
+		WHERE userid = #{1} AND pid = #{2}
+	</update>
+	
+	<delete id="delete">
+		DELETE
+		FROM
+		orderlist
+		WHERE
+		orderlist.pid = #{pid};
+	</delete>
+	
 </mapper> 

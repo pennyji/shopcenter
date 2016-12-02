@@ -1,16 +1,10 @@
 package com.cheer.mini.ums.controller;
 
-
-
 import java.util.HashMap;
 import java.util.List;
-
-
 import java.util.Map;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
@@ -20,14 +14,12 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.util.UriComponentsBuilder;
-
 import com.cheer.mini.base.Constants;
 import com.cheer.mini.base.exception.ServiceException;
 import com.cheer.mini.base.model.ResultEntity;
 import com.cheer.mini.base.model.ResultEntityHashMapImpl;
 import com.cheer.mini.pms.model.Product;
 import com.cheer.mini.pms.service.ProductService;
-import com.cheer.mini.shoppingcar.model.Cart;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
 import com.cheer.mini.ums.dto.request.LoginRequest;
 import com.cheer.mini.ums.model.User;
@@ -39,8 +31,10 @@ public class LoginController {
 	
 	@Autowired
 	private UserService userService;
+	
 	@Autowired
 	private ProductService productService;
+	
 	@Autowired
 	private ShoppingcarService shoppingcarService;
 
@@ -74,11 +68,17 @@ public class LoginController {
 	}
 
 	@RequestMapping("/logout")
-	public ModelAndView logout(final HttpServletRequest request,final HttpServletResponse response) {
-		ModelAndView mv = new ModelAndView("ums/login");
+	public String logout(final HttpServletRequest request,final HttpServletResponse response) {
 		request.getSession().removeAttribute(Constants.CURRENT_USER);
-		return mv;
+		return "redirect:/ums/user/showIndex";
 	}
+	
+//	@RequestMapping("/logout")
+//	public ModelAndView logout(final HttpServletRequest request,final HttpServletResponse response) {
+//		ModelAndView mv = new ModelAndView("/ums/customerIndex");
+//		request.getSession().removeAttribute(Constants.CURRENT_USER);
+//		return mv;
+//	}
 
 
 	@RequestMapping("/customerIndex")
@@ -97,8 +97,6 @@ public class LoginController {
 		return mv;
 	}
 
-
-
 	@RequestMapping("/showIndex")
 	public ModelAndView showIndex(final HttpServletRequest request,final HttpServletResponse response){
 		Map<String,Integer> params = new HashMap<String,Integer>();
@@ -112,7 +110,7 @@ public class LoginController {
 		List<Product> newlist = productService.findByNew();
 		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
 		if(user != null){
-			Map<String,Object> cart=shoppingcarService.getCartMsg(user.getId());
+			Map<String,Object> cart = shoppingcarService.getCartMsg(user.getId());
 			request.getSession().setAttribute("totalNum", cart.get("totalNumber"));
 			request.getSession().setAttribute("totalCount", cart.get("totalCount"));
 		}
