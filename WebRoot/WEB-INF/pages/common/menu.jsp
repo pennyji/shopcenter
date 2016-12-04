@@ -25,7 +25,7 @@
 			<li class="divider" ></li>
 			<li><a href="${path }/oms/order/showOrderDetail" class="nav3">我的订单</a></li>
 			<li class="divider" ></li>
-			<li><a href="${path}/pages/common/contacts.jsp" class="nav6">联系我们</a></li>
+			<li><a href="${path}/ums/contactUs/toContact" class="nav6">联系我们</a></li>
 			<li class="divider" style="margin-right: 290px;"></li>
 			<li><a href="${path}/ums/user/showLogin" class="nav4">登录</a></li>
 			<li class="divider"></li>

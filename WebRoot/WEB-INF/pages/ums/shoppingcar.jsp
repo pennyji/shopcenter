@@ -49,13 +49,14 @@
 				
 				<c:if test="${sessionScope.LOGIN_USER.id != null}">
 				<h1>我的购物车：</h1>
-				<table cellspacing="10">
+				<table cellspacing="9">
 					<tr>
-						<th style="width: 30px">全选<input type="checkbox" id="select_All"/></th>
+						<th style="width: 30px">全选<input type="checkbox" id="select_All" /></th>
 						<th>图片</th>
 						<th style="width:220px">商品</th>
 						<th>单价</th>
 						<th>数量</th>
+						<th></th>
 						<th>小计（元）</th>
 						<th>操作</th>
 					</tr>
@@ -66,11 +67,21 @@
 							<td>${myShoppingCart.pname}</td>
 							<td id="price">${myShoppingCart.price}</td>
 							<td id="number">
-								<input id="min" name="" type="button" value="-" class="min" disabled="disabled"/>
-								<input id="text_box" name="goodnum" type="text" value="${myShoppingCart.number}" style="width:20px;" />
+								<c:choose>
+									<c:when test="${myShoppingCart.number >1}">
+										<input id="min" name="" type="button" value="-" class="min" />
+										<input id="text_box" name="goodnum" type="text" value="${myShoppingCart.number}" style="width:20px;" />
+									</c:when>
+									<c:otherwise>
+										<input id="min" name="" type="button" value="-" class="min" disabled="disabled"/>
+										<input id="text_box" name="goodnum" type="text" value="${myShoppingCart.number}" style="width:20px;color:#bdbcbc" />
+									</c:otherwise>
+								</c:choose>
+								
 								<input id="add" name="" type="button" value="+" class="add"/>
 								<input type="hidden"  value="${myShoppingCart.price}">
 							</td>
+							<td><input type="hidden" value="${myShoppingCart.pid} " class="${LOGIN_USER.id}"></td>
 							<td id="subtotal">${myShoppingCart.subtotal}</td>
 							<td><a href="${ path }/ums/Shoppingcar/deleteItem?pid=${myShoppingCart.pid}">删 除</a></td>
 						</tr>

@@ -38,9 +38,11 @@ $(function(){
 		$(this).prev().val(number);//赋值
 		var num = $(this).prev().val();
 		var price = $(this).next().val();
-		$(this).parent().next().html(num*price);//计算subtotal的值
+		$(this).parent().next().next().html(num*price);//计算subtotal的值
 		//
-		updateTotal();
+		var pid = $(this).parent().next().find("input").val();
+		var uid = $(this).parent().next().find('input').attr("class");
+		updateTotal(number,pid,uid);
 	});
 	
 	$(".min").click(function(){
@@ -58,13 +60,22 @@ $(function(){
 	});
 	
 	//修改总价
-	function updateTotal(){
-		$("input:checkbox[name='item']:checked").each(function(){
-			alert(1111);
-			
-		});
+	function updateTotal(num,pid,uid){
+//		$("input:checkbox[name='item']:checked").each(function(){
+//			alert(1111);
+//			
+//		});
 		
 		$.ajax({
+			url:_path+"/ums/Shoppingcar/updateItem",
+			data:{"number":num,"pid":pid,"uid":uid},
+			dataType:"json",
+			type:"post",
+			success :function(result){
+				alert(result.message);
+				window.location=_path+"/ums/Shoppingcar/showShoppingCart";
+				
+			}
 			
 			
 		});

@@ -6,12 +6,16 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.cheer.mini.base.Constants;
+import com.cheer.mini.base.model.ResultEntity;
+import com.cheer.mini.base.model.ResultEntityHashMapImpl;
 import com.cheer.mini.pms.service.ProductService;
 import com.cheer.mini.shoppingcar.model.MyShoppingCart;
 import com.cheer.mini.shoppingcar.service.ShoppingcarService;
@@ -68,7 +72,8 @@ public class ShoppingcarController {
 	@RequestMapping("/showShoppingCart")
 	public ModelAndView showShoppingCart(HttpServletRequest request) {
 		System.out.println("showShoppingCart()...");
-		String id = request.getParameter("id");
+		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
+		String id = user.getId();
 		System.out.println(id);
 		List<MyShoppingCart> list = shoppingcarService.queryProduct1(id);
 		ModelAndView modelAndView = new ModelAndView();
@@ -103,6 +108,17 @@ public class ShoppingcarController {
 		modelAndView.setViewName("/ums/shoppingcar");
 		}
 		return modelAndView;
+	}
+	
+	@RequestMapping("/updateItem")
+	public ResponseEntity<ResultEntity> updateItems(HttpServletRequest request,@RequestParam String pid,@RequestParam String uid,@RequestParam String number){
+		int num = Integer.parseInt(number);
+		shoppingcarService.updateProduct(num, uid, pid);
+//		List<MyShoppingCart> list = shoppingcarService.queryProduct1(uid);
+		ResultEntity result = null;
+		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,"更新成功");
+		return new ResponseEntity<ResultEntity>(result,HttpStatus.CREATED);
+		
 	}
 
 }
