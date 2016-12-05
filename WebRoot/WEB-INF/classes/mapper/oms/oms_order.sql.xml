@@ -31,7 +31,8 @@
 	<update id="update">
 		UPDATE orderlist 
 		SET orderid=#{1},itemstatus=#{2} 
-		WHERE orderlist.userid=#{0} 
+		WHERE orderlist.userid=#{0}
+		AND orderlist.pid=#{3}
 		AND orderlist.orderid IS NULL
 	</update>
 	
@@ -54,6 +55,7 @@
 		WHERE o.pid = p.pid 
 		AND o.pid = #{1} 
 		AND o.userid = #{0}
+		and o.itemstatus=0
 	</select>
 	
 </mapper> 

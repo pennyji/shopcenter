@@ -1,5 +1,6 @@
 package com.cheer.mini.shoppingcar.controller;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -72,19 +73,25 @@ public class ShoppingcarController {
 	@RequestMapping("/showShoppingCart")
 	public ModelAndView showShoppingCart(HttpServletRequest request) {
 		System.out.println("showShoppingCart()...");
-		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
-		String id = user.getId();
-		System.out.println(id);
-		List<MyShoppingCart> list = shoppingcarService.queryProduct1(id);
 		ModelAndView modelAndView = new ModelAndView();
-		if (list.size() == 0) {
+		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
+		List<MyShoppingCart> list = new ArrayList<MyShoppingCart>();
+		if(user == null){
 			modelAndView.setViewName("/ums/emptycart");
-		}else {
-			Map<String,Object> cart = shoppingcarService.getCartMsg(id);
-			request.getSession().setAttribute("totalMoney", cart.get("totalCount"));
-			modelAndView.addObject("list", list);
-			modelAndView.setViewName("/ums/shoppingcar");
+		}else{
+			String id = user.getId();
+			list = shoppingcarService.queryProduct1(id);
+			
+			if (list.size() == 0) {
+				modelAndView.setViewName("/ums/emptycart");
+			}else {
+				Map<String,Object> cart = shoppingcarService.getCartMsg(id);
+				request.getSession().setAttribute("totalMoney", cart.get("totalCount"));
+				
+				modelAndView.setViewName("/ums/shoppingcar");
+			}
 		}
+		modelAndView.addObject("list", list);
 		return modelAndView;
 	}
 	

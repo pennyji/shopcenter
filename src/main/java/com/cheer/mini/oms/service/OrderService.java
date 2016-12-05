@@ -9,7 +9,7 @@ public interface OrderService {
 
 	public void createOrder(Order order);
 	
-	public void updateItem(String userId, String orderId, int itemStatus);
+	public void updateItem(String userId, String orderId, int itemStatus, String pid);
 	
 	public List<Order> queryByUserId(String userId);
 	

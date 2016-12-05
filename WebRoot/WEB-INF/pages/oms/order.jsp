@@ -10,7 +10,9 @@
 <head>
 <jsp:include page="../common/meta.jsp" />
 <jsp:include page="../common/resources.jsp" />
+<script src="${path }/scripts/ums/order.js"></script>
 <script src="${path }/scripts/ums/login.js?20160811"></script>
+<!--  
 <script type="text/javascript">
 	function orderMsg(){
 		var name = document.getElementById("name").value;
@@ -21,6 +23,7 @@
 				+"&phone="+phone+"&sum="+${totalMoney};
 	}
 </script>
+-->
 <style type="text/css">
 	table{text-align: center;}
 </style>
@@ -32,7 +35,7 @@
 			<jsp:include page="../common/menu.jsp" />
 			<jsp:include page="../common/left.jsp" />
 			<div class="center_content">
-			
+				<input type="hidden" id="sum" value="${totalMoney}">
 				<c:if test="${sessionScope.LOGIN_USER.id != null}">
 				<h1>我的订单：</h1>
 				<h2>收货人信息：</h2>
@@ -42,9 +45,6 @@
 						<p>联系电话：<input type="text" name="phone" id="phone"/></p>
 					</form>
 				<br>
-				<h2>支付方式：</h2>
-					货到付款
-				<br><br>
 				<h2>送货清单：</h2>
 				<table align="center" cellpadding="10" cellspacing="0">
 					<tr>
@@ -57,7 +57,7 @@
 					<c:forEach items="${listcat}" var="product">
 						<tr>
 							<td><img src="/shopcenter/${product.image}" width="30px" height="30px"/></td>
-							<td>${product.pname}</td>
+							<td><input type="hidden" value="${product.pid }" id="pid" class="pid"/>${product.pname}</td>
 							<td>${product.price}</td>
 							<td>${product.number}</td>
 							<td>${product.price*product.number}</td>
@@ -66,8 +66,9 @@
 				</table>
 				
 				<div align="right">
-					<h2>总 价：${sutotal}元</h2>
-					<input type="button" id="button" value="提交订单" onclick="orderMsg()">
+					<h2>总 价:${sutotal}元</h2>
+					<a href="javascript:void(0);" id="submitOrder"> 提交订单 </a>
+					<!-- <input type="button" id="button" value="提交订单" onclick="orderMsg()"> -->
 				</div>
 				
 				</c:if>

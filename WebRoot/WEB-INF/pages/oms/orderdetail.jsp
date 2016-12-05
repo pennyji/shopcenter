@@ -31,7 +31,7 @@
 			</c:if>
 			
 			<c:if test="${sessionScope.LOGIN_USER.id != null}">
-				<c:if test="${orders == null}">
+				<c:if test="${orders.size() == 0}">
 					<center>
 						<h1>您还未购买过商品</h1>
 						<br>
@@ -41,7 +41,7 @@
 			</c:if>
 			
 			<c:if test="${sessionScope.LOGIN_USER.id != null}">
-				<c:if test="${orders != null}">
+				<c:if test="${orders.size() != 0}">
 					<h1>订单详情：</h1>
 					<c:forEach items="${orders}" var="orders" >
 						<p style="color: red">

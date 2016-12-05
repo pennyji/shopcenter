@@ -22,8 +22,8 @@ public class OrderServiceImpl implements OrderService{
 	}
 
 	@Override
-	public void updateItem(String userId, String orderId, int itemStatus) {
-		orderDao.update(userId, orderId, itemStatus);
+	public void updateItem(String userId, String orderId, int itemStatus, String pid) {
+		orderDao.update(userId, orderId, itemStatus, pid);
 	}
 
 	@Override

@@ -56,7 +56,10 @@ $(function(){
 		}
 		var price = $(this).next().next().next().val();
 		//var price = $(this).parent().prev().html();
-		$(this).parent().next().html(num*price);
+		$(this).parent().next().next().html(num*price);
+		var pid = $(this).parent().next().find("input").val();
+		var uid = $(this).parent().next().find('input').attr("class");
+		updateTotal(number,pid,uid);
 	});
 	
 	//修改总价
@@ -72,7 +75,7 @@ $(function(){
 			dataType:"json",
 			type:"post",
 			success :function(result){
-				alert(result.message);
+//				alert(result.message);
 				window.location=_path+"/ums/Shoppingcar/showShoppingCart";
 				
 			}
