@@ -56,7 +56,7 @@
 		FROM
 		orderlist
 		WHERE
-		orderlist.pid = #{pid};
+		orderlist.pid = #{pid} and orderlist.itemstatus=0 ;
 	</delete>
 	
 </mapper> 

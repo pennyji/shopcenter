@@ -9,7 +9,7 @@ public interface OrderDao {
 
 	public void insert(Order order);
 	
-	public void update(String userId, String orderId, int itemStatus);
+	public void update(String userId, String orderId, int itemStatus, String pid);
 	
 	public List<Order> queryByUserId(String userId);
 	

@@ -73,7 +73,10 @@ public class OrderController {
 		for (int i = 0; i < pids.length-1; i++) {
 			String id= pids[i+1];
 			MyShoppingCart myShoppingCart = orderService.query(user.getId(), id);
-			list.add(myShoppingCart);
+			if(myShoppingCart != null){
+				list.add(myShoppingCart);
+			}
+			
 		}
 		request.getSession().setAttribute("listcat", list);
 		
@@ -102,24 +105,36 @@ public class OrderController {
 	 * @return
 	 */
 	@RequestMapping("/toGenerateOrder")
-	public ModelAndView toGenerateOrder(HttpServletRequest request){
-		System.out.println("toGenerateOrder()...");
+	public ResponseEntity<ResultEntity> toGenerateOrder(HttpServletRequest request){
+		ResultEntity result = null;
 		String name = request.getParameter("name");
 		String address = request.getParameter("address");
 		String phone = request.getParameter("phone");
+		String pid = request.getParameter("productids");
+		String[] pids = pid.split(";");
 		double sum = Double.valueOf(request.getParameter("sum")).doubleValue();
 		Order order = new Order();
 		order.setName(name);
 		order.setAddress(address);
 		order.setPhone(phone);
 		order.setTotalSum(sum);
+		
 		User user = (User) request.getSession().getAttribute(Constants.CURRENT_USER);
 		order.setUserId(user.getId());
-		orderService.createOrder(order);
-		orderService.updateItem(user.getId(), order.getOrderId(), Constants.ItemStatus.ITEM_STATUS_YES);
 		
-		ModelAndView modelAndView = new ModelAndView("/oms/ordersuccess");
-		return modelAndView;
+		orderService.createOrder(order);
+		for (int i = 0; i < pids.length-1; i++) {
+			orderService.updateItem(user.getId(), order.getOrderId(), 
+					Constants.ItemStatus.ITEM_STATUS_YES, pids[i+1]);
+		}
+		result = new ResultEntityHashMapImpl(ResultEntity.KW_STATUS_SUCCESS,"sucess");
+		return new ResponseEntity<ResultEntity>(result,HttpStatus.CREATED);
+	}
+	
+	@RequestMapping("/toOrderSuccess")
+	public ModelAndView toOrserSuccess(){
+		ModelAndView mv = new ModelAndView("/oms/ordersuccess");
+		return mv;
 	}
 	
 	/**
